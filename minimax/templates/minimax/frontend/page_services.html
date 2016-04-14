@@ -1,0 +1,112 @@
+{% extends 'minimax/frontend/page.html' %}
+{% load static from staticfiles %}
+{% load i18n l10n %}
+{% block body_class %}{% endblock %}
+
+{% block body_content %}
+    {% if service.header_image %}
+        <style>.service-header {
+            background: rgba(0, 0, 0, 0) url("{{ service.header_image }}") no-repeat scroll center center;
+        }</style>
+    {% endif %}
+    {% block slider %}
+        <div class="slider">
+            <div class="slider-left-boxes">
+                <span class="red-box"></span>
+            </div>
+            <div class="slider-right-boxes"></div>
+            <div class="slides">
+                <div class="slide service-header">
+                    <div class="content-wrapper">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="slide-caption">
+                                    <h2>{{ service.name|default:"" }}</h2>
+                                    <h3>{{ service.header_text_1|default:"" }}</h3>
+                                    {{ service.header_text_2|default:"<p></p>" }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock slider %}
+
+    {% if two_columns and service.description_left and service.description_right %}
+    <div class="wrapper wrapper-grey" data-label="{{ service.description_title|default:'Always Ansible' }}">
+        <div class="content-wrapper content-section">
+            <div class="row row-no-margin-right">
+                <div class="col-md-12">
+                    <h2>{{ service.description_title|default:'Always Ansible' }}</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ service.description_left|safe }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ service.description_right|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-no-margin-right">
+                <div class="col-md-3 col-md-offset-3">
+                    {% if service.description_left_image %}
+                        <img src="{{ service.description_left_image }}" class="img-responsive"/>
+                        <p> <h4 class="text-center">{{ service.description_left_image_title }}</h4> </p>
+                    {% endif %}
+                </div>
+                <div class="col-md-3">
+                    {% if service.description_right_image %}
+                        <img src="{{ service.description_right_image }}" class="img-responsive"/>
+                        <p> <h4 class="text-center">{{ service.description_right_image_title }}</h4> </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% elif service.description_left %}
+        <div class="wrapper wrapper-grey" data-label="{{ service.description_title|default:'Always Ansible' }}">
+        <div class="content-wrapper content-section">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>{{ service.description_title|default:'Always Ansible' }}</h2>
+                    <div class="row">
+                        <div class="col-md-8">
+                            {{ service.description_left|safe }}
+                        </div>
+                        <div class="col-md-4">
+                            {% if service.description_left_image %}
+                                <img src="{{ service.description_left_image }}" class="img-responsive"/>
+                                <p> <h4 class="text-center">{{ service.description_left_image_title }}</h4> </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if service.details_text %}
+    <div class="wrapper wrapper-white" data-label="{% trans 'Detailed scope' %}">
+        <div class="content-wrapper content-section">
+            <div class="row row-no-margin-right">
+                <div class="col-md-9 match-height">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>{% trans 'Detailed scope' %}</h2>
+                            {{ service.details_text|safe }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 section-image match-height">
+                    {% if service.details_image %}
+                    <div style="background-image: url('{{ service.details_image }}')"></div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

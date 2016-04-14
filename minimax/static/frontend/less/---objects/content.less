@@ -1,0 +1,143 @@
+.wrapper {
+  padding-top: @base-size * 4;
+  padding-bottom: @base-size * 4;
+}
+
+.wrapper-grey {
+  background: @light-grey;
+}
+
+.content-wrapper {
+  max-width: @screen-huge;
+  margin: auto;
+
+  .left-column {
+    width: 30%;
+    padding-right: @base-size;
+    float: left;
+  }
+
+  .right-column {
+    width: 70%;
+    float: right;
+  }
+}
+
+.content-section {
+  h2 {
+    font-size: 32px;
+    margin-bottom: @base-size * 0.5;
+  }
+
+  h3, p {
+    color: @content-grey;
+    margin-bottom: @base-size * 0.5;
+  }
+
+  .download-link {
+    span {
+      font-size: 20px;
+      color: @secondary-color;
+      position: relative;
+      top: 4px;
+      margin-right: 8px;
+    }
+
+    a {
+      color: @secondary-color;
+      font-weight: bold;
+    }
+  }
+
+  .row:nth-child(2) {
+    // margin-top: @base-size * 2;
+  }
+
+  > .row {
+    // margin-bottom: @base-size;
+
+    .section-grey {
+      background: lighten(@header-border-color, 20%);
+
+      > .row {
+        padding: @base-size;
+
+        > div {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  .section-image-left {
+    padding-right: 0;
+  }
+
+  .section-image-right {
+    padding-left: 0;
+  }
+
+  .section-image {
+    padding-right: 0;
+
+    > div {
+      background-position: center center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 100%;
+    }
+  }
+
+  .section-image-align-top {
+    > div {
+      background-position: top;
+    }
+  }
+}
+
+@media (max-width: (@screen-huge + 75)) {
+  .content-wrapper {
+    max-width: @screen-large;
+    padding: 0 @base-size;
+  }
+}
+
+@media (max-width: (@screen-huge)) {
+  .content-wrapper {
+    padding: 0 (@base-size * 2);
+  }
+}
+
+// @media (max-width: (@screen-large + 50)) {
+//   .content-wrapper {
+//     .left-column {
+//       width: 100%;
+//       float: none;
+//     }
+//
+//     .right-column {
+//       display: none;
+//     }
+//   }
+// }
+//
+// @media (max-width: (@screen-large + 75)) {
+//   .content-wrapper {
+//     max-width: @screen-medium;
+//     padding: 0 @base-size;
+//   }
+// }
+//
+// @media (max-width: (@screen-medium + 75)) {
+//   .content-wrapper {
+//     max-width: @screen-small;
+//     padding: 0 @base-size;
+//   }
+// }
+//
+// @media (max-width: (@screen-small + 75)) {
+//   .content-wrapper {
+//     max-width: @screen-tiny;
+//     padding: 0 @base-size;
+//   }
+// }

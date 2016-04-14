@@ -1,0 +1,71 @@
+/*************************************************************** 
+Login/Logout secondary panel background and font
+***************************************************************/
+
+body.grp-login .grp-module-login h1 span.grp-current-page {
+  background-color:  #808080;
+  color: #fff;
+}
+
+/***************************************************************
+Color of links
+***************************************************************/
+
+a, a.grp-link-external, table thead th a, .grp-pagination ul li a, .grp-date-hierarchy ul li a.grp-date-hierarchy-back,
+header#grp-header #grp-navigation ul li.grp-collapse.grp-open > ul li a, #grp-breadcrumbs > ul a {
+  color: #808080;
+}
+
+/***************************************************************
+Login/logout primary panel and application wide header color
+***************************************************************/
+
+body.grp-login .grp-module-login h1, header#grp-header #grp-navigation {
+  background-color: #C40008;
+}
+
+body.grp-login .grp-module-login h1 {
+  border-color: #C40008 #C40008;
+}
+
+
+/***************************************************************
+Breadcrumb panel
+***************************************************************/
+
+#grp-context-navigation {
+  background-color: #EEE;
+}
+
+#grp-context-navigation #grp-breadcrumbs > ul li, #grp-context-navigation .content-language-switcher-label {
+  color: #666;
+}
+
+/***************************************************************
+Color of user menu links
+***************************************************************/
+
+header#grp-header #grp-navigation a {
+  color: #CCC;
+}
+
+header#grp-header #grp-navigation a, header#grp-header #grp-navigation ul li.grp-collapse.grp-open > ul li a:hover {
+  color: #999;
+}
+
+/***************************************************************
+Admin logo: Uncomment if want to replace the admin title with a logo
+***************************************************************/
+
+header#grp-header #grp-navigation h1#grp-admin-title, .grp-module-login .grp-admin-title {
+    font-size: 0px;
+    display: block;
+    background-image: url('../images/logo.png');
+    background-repeat: no-repeat;
+    background-size: 103px;
+    height: 32px;
+    width: 103px;
+    padding: 0px;
+    margin: 2px 0;
+}
+

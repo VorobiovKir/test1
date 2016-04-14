@@ -1,0 +1,73 @@
+{% load static from staticfiles %}
+{% load menu_tags %}
+
+<header class="header">
+    <div class="logo">
+        <div class="mobile-navigation-button">
+            <div class="icon-menu"></div>
+        </div>
+        <h1>Skilled in fire safety</h1>
+        <img src="{% static 'frontend/images/logo.png' %}" alt="Minimax"/>
+        <div class="location">
+            <button><span class="title">{{ region.name }} </span><span class="lang">{{ language_code|upper }}</span>
+            </button>
+            <div class="navigation-dropdown location-dropdown header-dropdown header-dropdown-location"
+                 data-dropdown="location">
+                <div class="content-wrapper">
+                    <div class="column">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h2>Select local site</h2>
+                                <h4>Choose your preferred local site based on the country and language</h4>
+                                <span class="list-item list-item-square">Minimax global site, English</span>
+                                <hr/>
+                                <h4>Suggested local site</h4>
+                                <span class="list-item list-item-square">Germany, German</span>
+                            </div>
+                            <div class="col-md-8">
+                                <form class="location-search">
+                                    <input type="text" name="location-search" placeholder="Find you local site"
+                                           class="icon icon-search"/>
+                                    <div class="results-box">
+                                        <ul class="square-items">
+                                            {% get_active_regions as regions %}
+                                            {% for region in regions %}
+                                                <li class="list-item list-item-square"><a
+                                                        href="{% url 'set_language_and_region' region_code=region.region_code language_code=region.language_code %}">{{ region.name }}, {{ region.language_name }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="search">
+            <button class="icon-search"></button>
+            <div class="navigation-dropdown search-dropdown header-dropdown">
+                <div class="content-wrapper">
+                    <div class="column">
+                        <h2>What are you looking for?</h2>
+                        <form class="search-form inline-form">
+                            <div class="form-group">
+                                <input class="col-xs-10" type="text" name="search" placeholder="Search..."/>
+                            </div>
+                            <input type="submit" value="Search"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <nav class="navigation">
+        {% render_top_menu %}
+    </nav>
+    <nav class="mobile-navigation">
+        {% render_top_menu_mobile %}
+    </nav>
+</header>

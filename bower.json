@@ -1,0 +1,25 @@
+{
+  "name": "Minimax",
+  "version": "1.0.0",
+  "authors": ["Kreios S.à r.l. <info@kreios.lu>"],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "description": "The CMS to be used for Minimax's new website.",
+  "main": "",
+  "homepage": "www.kreios.lu",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "html5shiv": "~3.7.3",
+    "matchHeight": "matchheight#~0.6.0",
+    "bootstrap": "~3.3.5",
+    "smooth-scroll": "https://github.com/cferdinandi/smooth-scroll.git#~7.1.1",
+    "featherlight": "~1.3.4"
+  }
+}

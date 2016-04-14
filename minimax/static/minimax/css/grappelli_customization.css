@@ -1,0 +1,839 @@
+
+/****************************************************************
+Hide Django position field (to be used for ordering) in add button for FK widget
+ ****************************************************************/
+
+.grp-stacked .position {
+    display: none !important;
+}
+
+.grp-tabular .position {
+    display: none !important;
+}
+
+a.add-another {
+  display: none !important;
+}
+
+/****************************************************************
+ CSS for the status/language labels
+ ****************************************************************/
+
+.styled_status_label .grp-readonly, .styled_language_label .grp-readonly,
+.status_en .grp-readonly, .status_da .grp-readonly, .status_de .grp-readonly, .status_es .grp-readonly,
+.status_fr .grp-readonly, .status_it .grp-readonly, .status_nl .grp-readonly, .status_sv .grp-readonly {
+    border-width: 0 !important;
+    min-width: 50px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/****************************************************************
+General Grappelli overwrites
+ ****************************************************************/
+
+body {
+  min-width: 1170px;
+}
+
+.grp-td, .grp-th {
+    padding: 2px 5px !important;
+}
+
+header#grp-header {
+    z-index: 9999;
+}
+
+.grp-fixed-footer {
+    z-index: 9999;
+}
+
+fieldset.grp-module .grp-row {
+    overflow: visible;
+}
+
+p.grp-readonly {
+  border: none;
+}
+
+.button-state-blue, input[type="button"], button, a.fb_show, a.related-lookup, body.tinyMCE input[name="src"] + div a,
+body.tinyMCE input[name="href"] + div a, a.related-lookup.m2m, .grp-autocomplete-wrapper-m2m a.related-lookup,
+.grp-autocomplete-wrapper-fk a.related-lookup, button.ui-datepicker-trigger, button.ui-timepicker-trigger,
+button.ui-datetime-now, .grp-pulldown-container .grp-pulldown-handler:hover,
+.grp-pulldown-container.grp-pulldown-state-open .grp-pulldown-handler,
+.grp-pulldown-container.grp-pulldown-state-open .grp-pulldown-handler:hover {
+  background-color: #DDD;
+}
+
+.grp-messagelist {
+  padding: 20px 0 0;
+}
+
+.grp-messagelist li {
+  background-color: #D0EBD0;
+  border-color: #ABD7AB;
+}
+
+div.grp-readonly {
+  min-width: 30px;
+  max-width: 2000px;
+}
+
+.grp-collapse.grp-open > h2.grp-collapse-handler {
+  background-image: none;
+  background-color: #ddd;
+}
+
+.grp-collapse h2.grp-collapse-handler {
+  text-shadow: none;
+}
+
+.grp-collapse.grp-closed > h3.grp-collapse-handler {
+  background-image: none;
+  background-color: #EEE;
+}
+
+.grp-collapse.grp-closed > h3.grp-collapse-handler:hover {
+  background-image: none;
+  background-color: #EFEFEF;
+}
+
+.grp-collapse.grp-closed.grp-predelete > h3.grp-collapse-handler, .grp-collapse.grp-closed.grp-predelete > h3.grp-collapse-handler:hover {
+  background-image: none;
+  background-color: #f2e6e6;
+}
+
+.grp-collapse.grp-open > h3.grp-collapse-handler {
+  background-image: none;
+  background-color: #EEE;
+}
+
+.grp-collapse.grp-closed > h2.grp-collapse-handler {
+  background-image: none;
+  background-color: #DFDFDF;
+}
+
+.grp-collapse.grp-closed > h2.grp-collapse-handler:hover {
+  background-image: none;
+  background-color: #EEE;
+}
+
+.grp-object-tools li a {
+  border-radius: 5px;
+}
+
+.grappelliSkin a.mceResize:hover, .grappelliSkin a.mceResize:active {
+  background-color: #DDD !important;
+}
+
+.grappelliSkin a.mceButtonEnabled:hover {
+  background: none repeat scroll 0 0 #DDD !important;
+}
+
+.grp-group, .grp-group.grp-closed, .grp-group.grp-closed:hover {
+  border-width: 1px;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  background: #FEFEFE;
+}
+
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+  background: #FEFEFE;
+}
+
+input[type="submit"], input[type="submit"]:hover, input[type="submit"]:focus, .grp-object-tools li a:hover,
+.grp-object-tools li a.grp-add-link:hover, body.grp-login .grp-module-login h1 span.grp-current-page,
+body.grp-login .grp-module-login h1, header#grp-header #grp-navigation, .grp-fixed-footer {
+  background-image: none;
+}
+
+.clearlooks2 .mceMiddle span {
+  background:  #FFFFFF;
+  padding: 5px;
+}
+
+.vLargeTextField {
+  height: auto;
+}
+
+input.grp-search-field[type="text"] {
+  border-radius: 5px;
+}
+
+form#grp-changelist-search {
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+}
+
+#grp-content {
+  top: 60px;
+}
+
+.grp-module h3 {
+  background-color: #E4E4E4;
+  background-image: none;
+}
+
+#grp-content  .g-d-c, #grp-content  .g-all-c {
+  width: 100%;
+}
+
+#grp-content  .g-centered {
+  width: 380px !important;
+}
+
+.grp-group > h2 {
+  background-color: #DDD;
+  background-image: none;
+}
+
+body.grp-delete-confirmation ul.grp-nested-list > li {
+  font-size: 13px;
+}
+
+body.grp-delete-confirmation ul.grp-nested-list > li > ul > li {
+  font-size: 12px;
+}
+
+#grp-changelist-form .grp-row a img {
+  margin: -8px;
+  border-radius: 2px;
+}
+
+#grp-changelist .nowrap {
+  white-space: normal;
+}
+
+.grp-tbody .grp-tr:hover .grp-td {
+  background-color: #E2EAED;
+}
+
+#grp-container .grp-tabular .grp-table .grp-th, #grp-container .grp-tabular .grp-table .grp-td {
+  white-space: normal;
+  width: auto;
+}
+
+.grp-module h2 {
+  background-color:  #E7E7E7;
+  background-image: none;
+}
+
+.grp-module-login .grp-admin-title {
+  margin-left: 10px !important;
+}
+
+#grp-container .vTextField,
+#grp-container .vURLField,
+#grp-container .vFileBrowseField,
+#grp-container  textarea,
+#grp-container .vLargeTextField,
+#grp-container .vXMLLargeTextField,
+.grp-autocomplete-wrapper-m2m,
+input[name=longitude],
+input[name=latitude] {
+  width: 100%;
+  resize: vertical;
+}
+
+/****************************************************************
+ CSS fix for the coloring picker widget control
+ ****************************************************************/
+
+.evo-colorind, .evo-colorind-ie, .evo-colorind-ff   {
+    border-radius: 20px;
+    margin-top: 1px;
+}
+
+div.evo-color div {
+    border: 1px solid #666 !important;
+}
+
+div.evo-color span {
+    font-size: small !important;
+    color: #666;
+}
+
+/****************************************************************
+ Dashboard related styles
+ ****************************************************************/
+
+body.dashboard {
+    background-color:  #EEEEEE !important;
+}
+
+body.dashboard #grp-content {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #BBBBBB;
+    padding-bottom: 10px;
+}
+
+body.dashboard article .mtg-version {
+    color: #777;
+    font-size: 12px;
+    display: block;
+    text-align: center;
+    position: relative;
+    bottom: -110px;
+}
+
+body.dashboard article .mtg-version .kreios-logo {
+    height: 60px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.dashboard .g-d-c, .dashboard .g-all-c {
+    width: 100%;
+}
+
+.dashboard .g-d-12, .dashboard .l-2cr-fluid.l-d-12 .c-1 {
+    margin-right: 0;
+    width: 54%;
+}
+
+.dashboard .g-d-f, .dashboard .g-all-f, .g-all-fl, .dashboard .l-2c .c-1, .dashboard .l-2cr .c-1 {
+    margin-right: 0 !important;
+}
+
+.dashboard .g-d-6, .dashboard .l-2cr-fluid.l-d-6 .c-1 {
+    margin-right: 0;
+    width: 23%;
+}
+
+.dashboard .g-d-l, .dashboard .g-all-l, .g-all-fl, .dashboard .l-2c .c-2, .l-2cr .c-2 {
+    padding-right: 0 !important;
+}
+
+.dashboard .grp-group {
+    width: 98%;
+}
+
+.dashboard .g-d-6 > .grp-module {
+    width: 96%;
+}
+
+.dashboard .g-d-l > .grp-module {
+    width: 100%;
+}
+
+/****************************************************************
+ Dashboard items
+ ****************************************************************/
+
+.dashboard-item .grp-module {
+  padding: 2px;
+}
+
+#grp-content .dashboard-item .grp-module .grp-td, #grp-content .dashboard-item .grp-module .grp-th {
+  padding: 3px ;
+}
+
+.dashboard-item .grp-tabular .grp-table .grp-tbody {
+  font-size: 11px;
+}
+
+.dashboard-item .grp-module {
+  background: white;
+}
+
+#column_1 > .grp-module {
+  width: 98%;
+}
+
+.grp-dashboard-module .grp-tabular .grp-table .grp-th, .grp-dashboard-module .grp-tabular .grp-table .grp-td {
+  white-space: normal !important;
+}
+
+.grp-dashboard-module  .highlight {
+  font-weight: bold;
+  color: #444;
+}
+
+#grp-content .recent-actions .avatar-column,  #grp-content .recent-actions .message-columm {
+  display: inline;
+}
+
+#grp-content .recent-actions .message-columm .user, #grp-content .recent-actions .message-columm .object, #grp-content .recent-actions .message-columm .info {
+}
+
+#grp-content .recent-actions .message-columm  .user {
+  font-size: 12px;
+  font-weight: bold;
+  color: #444;
+}
+
+#grp-content .recent-actions .message-columm  .type {
+  color: #777;
+}
+
+#grp-content .recent-actions .message-columm .info {
+  font-style: italic;
+  color: #777;
+}
+
+#grp-content .recent-actions .avatar-column {
+  float: left;
+  width: auto;
+  margin-bottom: 21px;
+  margin-right: 10px;
+}
+
+#grp-content .recent-actions {
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+/***************************************************************
+Entity specific CSS overwrites
+***************************************************************/
+
+.internal_remarks textarea {
+  font-weight: normal;
+  font-size: 11px;
+}
+
+.avatar-image-box img {
+  border-radius: 3px;
+}
+
+/***************************************************************
+2-column layout
+***************************************************************/
+
+.mtg-right-panel {
+    float: right;
+    width: 32%;
+}
+
+.mtg-left-panel-by-inline, .mtg-left-panel-by-fieldset {
+  float: left;
+  width: 67%;
+  clear: none;
+}
+
+#grp-container .grp-module:not(.grp-submit-row) {
+    min-width: 100px !important;
+}
+
+#grp-container .g-d-4-td, .l-2c-fluid.l-d-4:not(.grp-cell) .c-1, .grp-module .l-2c-fluid.grp-cell.l-d-4 .c-1 {
+    display: table-cell;
+    float: none;
+    min-width: 110px;
+    padding-right: 20px;
+    width: 110px;
+}
+
+#grp-container .grp-tabular .grp-table .grp-tbody .grp-th.grp-tools-container,
+#grp-container .grp-tabular .grp-table .grp-tbody .grp-td.grp-tools-container {
+    padding: 1px;
+}
+
+#grp-container .grp-tools-container .grp-tools {
+    right: 0;
+    padding: 0;
+}
+
+/***************************************************************
+m-to-m selector
+***************************************************************/
+
+.selector {
+    width: 100%;
+}
+
+.selector select[multiple=multiple] {
+  margin: 0;
+}
+
+.selector .selector-available, .selector .selector-chosen {
+    background: none;
+    border: none;
+    border-radius: 0;
+    width: 48%;    
+}
+
+.selector.stacked .selector-available, .selector.stacked .selector-chosen {
+  background: none;
+  border: none;
+  border-radius: 0;
+  width: 100% !important;
+}
+
+.selector .selector-filter {
+    padding: 3px 0 3px 28px;
+    text-indent: 0;
+}
+
+.selector .selector-filter label {
+    display: none !important;
+}
+
+.selector a.selector-chooseall, .selector a.selector-clearall {
+    padding: 2px 0;
+}
+
+.selector .selector-available h2, .selector .selector-chosen h2 {
+    padding: 5px 0;
+}
+
+.selector .selector-available select {
+    height: 130px !important;
+}
+
+.selector .selector-chosen select[multiple="multiple"] {
+    height: 163px !important;
+}
+
+.selector.stacked .selector-available select {
+  height: 80px !important;
+}
+
+.selector.stacked .selector-chosen select {
+  height: 115px !important;
+}
+
+.selector.stacked .selector-filter {
+  padding: 2px 0 1px;
+  text-indent: 0;
+}
+
+.selector .selector-available select[multiple="multiple"], .selector .selector-chosen select[multiple="multiple"] {
+    width: 100% !important;   
+    max-width: none !important;
+}
+
+.selector .selector-available .selector-filter {
+  border-top-width: 0;
+  border-bottom-width: 0;
+}
+
+.selector .selector-filter input[type="text"] {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.selector.stacked .selector-filter input[type="text"] {
+    width: 100% !important;
+    max-width: none !important;
+}
+
+.selector .selector-available h2, .selector .selector-chosen h2 {
+    background: none;
+}
+
+.select ul.selector-chooser {
+    width: 3%;
+}
+
+.selector.stacked ul.selector-chooser {
+  margin: 4px 0 0 48%;
+}
+
+/*************************************************************
+Language flag representation to be used for list views for
+displaying language information (see styled_language_label in
+code).
+ ************************************************************/
+
+.fallback-en:after {
+  content: url('../images/flags/us.png');
+  position: absolute;
+  top: 14px;
+  right: -6px;
+}
+
+.language-indicator {
+  display: inline-block;
+}
+
+.language-indicator:before{
+  white-space: nowrap;
+  padding-right: 3px;
+  vertical-align: middle;
+}
+
+.language-en:before {
+  content: url('../images/flags/us.png');
+}
+
+.language-da:before {
+  content: url('../images/flags/dk.png');
+}
+
+.language-de:before {
+  content: url('../images/flags/de.png');
+}
+
+.language-es:before {
+  content: url('../images/flags/es.png');
+}
+
+.language-fr:before {
+  content: url('../images/flags/fr.png');
+}
+
+.language-it:before {
+  content: url('../images/flags/it.png');
+}
+
+.language-nl:before {
+  content: url('../images/flags/nl.png');
+}
+
+.language-sv:before {
+  content: url('../images/flags/sv.png');
+}
+
+
+/*************************************************************
+New button style
+ ************************************************************/
+
+.grp-object-tools li a.grp-viewsite-link, .grp-object-tools li a[target="_blank"] {
+  background-image: none;
+  border: 1px solid #BBB;
+  padding: 4px 15px;
+}
+
+a.grp-button, button.grp-button, input.grp-button[type="button"] {
+  background-image: none;
+  border: 1px solid #BBB;
+  background: #fff;
+  color: #777;
+  opacity: 1 !important;
+}
+
+input[type="submit"], .grp-object-tools li a, .grp-object-tools li a.grp-add-link {
+  border: 1px solid #BBB !important;
+  background: #fff;
+  opacity: 1 !important;
+  color: #777;
+  padding: 4px 15px;
+}
+
+input[type="submit"]:hover, input[type="submit"]:focus,
+.grp-object-tools li a:hover, .grp-object-tools li a:focus,
+.grp-object-tools li a.grp-add-link:hover, .grp-object-tools li a.grp-add-link:focus,
+a.grp-button, button.grp-button:hover, a.grp-button, button.grp-button:focus,
+input.grp-button[type="button"]:hover, input.grp-button[type="button"]:focus,
+.grp-object-tools li a.grp-viewsite-link:hover, .grp-object-tools li a.grp-viewsite-link:focus,
+.grp-object-tools li a[target="_blank"]:hover, .grp-object-tools li a[target="_blank"]:focus {
+  border: 1px solid #777;
+  background: #EEE;
+  opacity: 1 !important;
+  color: #333;
+}
+
+.grp-object-tools li a:hover, .grp-object-tools li a:focus,
+.grp-object-tools li a.grp-add-link:hover, .grp-object-tools li a.grp-add-link:focus,
+.grp-object-tools li a.grp-viewsite-link:hover, .grp-object-tools li a.grp-viewsite-link:focus,
+.grp-object-tools li a[target="_blank"]:hover, .grp-object-tools li a[target="_blank"]:focus {
+    border: 1px solid #BBB !important;
+}
+
+/*************************************************************
+New "Fixed footer" layout (no longer) depending on branding color
+ ************************************************************/
+
+.grp-fixed-footer {
+  border-top: 1px solid #CCC;
+  background-color: #EEE;
+  padding: 5px 20px 0px !important;
+}
+
+.grp-submit-row > ul > li {
+  margin-left: 1px !important;
+}
+
+.grp-submit-row.grp-fixed-footer > ul > li {
+  background-color: #ddd;
+}
+
+li.grp-changelist-actions .grp-horizontal-list li {
+  margin-right: 4px;
+  margin-top: 2px;
+  border: 1px solid #999;
+}
+
+li.grp-changelist-actions .grp-horizontal-list .grp-button {
+  padding: 4px 10px 1px;
+  height: 23px;
+}
+
+li.grp-changelist-actions .grp-horizontal-list span {
+  color: #666 !important;
+  border-width: 0 !important;
+  background: #fff !important;
+}
+
+/*************************************************************
+Secondary panel on login and logout should have no border to be brandable
+ ************************************************************/
+
+body.grp-login .grp-module-login h1 span.grp-current-page {
+  border-width: 0 !important;
+}
+
+/*************************************************************
+User menu adaption
+ ************************************************************/
+
+header#grp-header #grp-navigation ul#grp-user-tools > li {
+  border-left-width: 0;
+  border-right-width: 0;
+}
+
+header#grp-header #grp-navigation ul#grp-user-tools {
+  border-left-width: 0;
+}
+
+#grp-container #grp-user-tools .grp-user-options-container .user-options-handler {
+  text-indent: 30px !important;
+}
+
+#grp-container #grp-user-tools img {
+  position: absolute;
+  top: 3px;
+  display: inline;
+  left: 4px;
+  border-radius: 2px;
+}
+
+header#grp-header #grp-navigation ul li.grp-collapse.grp-open > ul li {
+  border-bottom-width: 0;
+  border-top-width: 0;
+}
+
+header#grp-header #grp-navigation ul li.grp-collapse.grp-open > ul  {
+  background: #FFFFFF;
+  margin-top: 0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  border: 1px solid #CCC;
+  border-top-width: 0;
+}
+
+/****************************************************************
+General status label styling
+****************************************************************/
+
+.badge-container {
+  display: inline-block;
+  position: absolute;
+  font-weight: normal;
+  line-height: 1;
+  vertical-align: baseline;
+  top: 14px;
+  right: -3px;
+}
+
+.status-badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 1px;
+  font-size: 8px;
+  font-weight: normal;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  background-color: #777;
+  border-radius: 3px;
+  border: 1px solid #fff;
+}
+
+.status-badge.ok, .status-badge.published {
+  background-color: #54c248;
+}
+
+.status-badge.review-pending {
+  background-color: #ff8900;
+}
+
+.status-badge.to-be-revised, .status-badge.hidden {
+  background-color: #D34F4F;
+}
+
+div.status-default, div.status-ok, div.status-to-be-revised, div.status-review-pending,
+div.status-hidden, div.status-published, div.status-overlayed, div.status-error {
+  border-radius: 3px 3px 3px 3px;
+  color: #FFFFFF;
+  padding: 4px 10px 3px !important;
+  text-align: center;
+  display: inline;
+  font-size: 11px;
+  white-space: nowrap !important;
+}
+
+.translated-status {
+    margin: 0 2px;
+}
+
+.status-received, .status-review-pending, .status-pending {
+  background-color: #ff8900;
+}
+
+.status-generated {
+  background-color: #7fc5d5;
+}
+
+.status-delivered {
+  background-color: #98ce41;
+}
+
+.status-completed {
+  background-color: #7AA92C;
+}
+
+.status-reception-failed, .status-to-be-revised, .status-failure, .status-hidden {
+  background-color: #D34F4F;
+}
+
+.status-error {
+  background-color: #BB2F2F;
+}
+
+.status-ok, .status-success, .status-closed, .status-default, .status-published {
+  background-color: #54c248;
+}
+
+.status-overlayed {
+  background-color: #DDD;
+}
+
+.status-upcoming {
+  background-color: #98CEEF;
+}
+
+tr.upcoming {
+  color: #AAA;
+}
+tr.upcoming a {
+  color: #AAA;
+}
+
+.grappelliSkin .mceToolbar span.mce_photos img {
+    width: 13px;
+    height: auto;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+#clear-datepicker-filter {
+    margin: 3px 0;
+    padding-left: 0px;
+    border-radius: 0;
+    cursor: pointer;
+    color: #c4171d;
+}
+
+
+/****************************************************************
+Collapsed window fix
+****************************************************************/
+.grp-collapse.grp-closed *, .grp-collapse.grp-closed .grp-row:not(tr).grp-cells,
+.grp-collapse.grp-closed .grp-table, .grp-collapse.grp-closed .grp-table * {
+    display: none !important;
+}
+

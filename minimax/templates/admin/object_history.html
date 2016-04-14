@@ -1,0 +1,14 @@
+{% extends "grappelli:admin/object_history.html" %}
+
+<!-- LOADING -->
+{% load i18n grp_tags utils admin_urls %}
+
+<!-- BREADCRUMBS -->
+{% block breadcrumbs %}
+    <ul class="grp-horizontal-list">
+        <li><a href="{% url 'admin:index' %}">{% trans "Home" %}</a></li>
+        <li><a href="{% url opts|admin_urlname:'changelist' %}">{{ module_name }}</a></li>
+        <li><a href="{% url opts|admin_urlname:'changelist' %}{{ object.pk }}">{{ object|truncatewords:"18" }}</a></li>
+        <li>{% trans 'History' %}</li>
+    </ul>
+{% endblock %}

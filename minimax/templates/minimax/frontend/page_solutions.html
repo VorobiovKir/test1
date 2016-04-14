@@ -1,0 +1,213 @@
+{% extends 'minimax/frontend/page.html' %}
+{% load static from staticfiles %}
+{% load i18n l10n %}
+{% block body_class %}{% endblock %}
+
+{% block body_content %}
+    {% if solution.header_image %}
+        <style>.solution-header {
+            background: rgba(0, 0, 0, 0) url("{{ solution.header_image }}") no-repeat scroll center center;
+        }</style>
+    {% endif %}
+    {% block slider %}
+        <div class="slider">
+            <div class="slider-left-boxes">
+                <span class="red-box"></span>
+            </div>
+            <div class="slider-right-boxes"></div>
+            <div class="slides">
+                <div class="slide solution-header">
+                    <div class="content-wrapper">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="slide-caption">
+                                    <h2>{{ solution.name|default:"" }}</h2>
+                                    <h3>{{ solution.header_text_1|default:"" }}</h3>
+                                    {{ solution.header_text_2|default:"<p></p>" }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock slider %}
+
+    {% if solution.referenced_technologies.all and solution.primary_description %}
+        <div class="wrapper wrapper-grey" data-label="{% trans 'Safety' %}">
+            <div class="content-wrapper content-section">
+                <div class="row ">
+                    <div class="col-md-8">
+                        <h2>{% trans 'Security throughout the automotive plant' %}</h2>
+                        {{ solution.primary_description|safe }}
+                    </div>
+                    <div class="col-md-4">
+                        {% if solution.primary_description_image %}
+                            <div class="rounded-image center-block"
+                                 style="background-image: url('{{ solution.primary_description_image }}')"></div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% if solution.referenced_technologies.all %}
+                    <div class="row row-no-margin-right">
+                        <div class="col-md-6 section-image match-height">
+                            {% if solution.technologies_image %}
+                                <div style="background-image: url('{{ solution.technologies_image }}')"></div>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-6 section-grey match-height">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ solution.technologies_teaser|safe }}
+                                    <ul class="square-items small-items">
+                                        {% for technology in solution.referenced_technologies.all %}
+                                            <li><a href="/{{ region.code }}/
+                                                    {{ language_code }}{{ technology.get_absolute_url }}">{{ technology.name }}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+
+    {% if solution.interactive_map_image %}
+    <div class="wrapper wrapper-white" data-label="{% trans 'Overview' %}">
+        <div class="content-wrapper">
+            <div class="hidden">
+                {% for point in solution.map_points.all %}
+                    <div class="map-item" data-for-map="map-overview" data-map-title="{{ point.application.title }}"
+                         data-map-position-x="{{ point.position_x|unlocalize }}" data-map-position-y="{{ point.position_y|unlocalize }}">
+                        <div class="row">
+                            <div class="col-md-3 section-image centered-image">
+                                <img src="{{ point.application.image }}" class="img-rounded"/>
+                            </div>
+                            <div class="col-md-9">
+                                    <h2>{{ point.application.title }}</h2>
+                                    {{ point.application_description|safe }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <img class="img-responsive center-block interactive-map" src="{{ solution.interactive_map_image }}" data-map-name="map-overview"/>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if solution.all_related_documents.all %}
+    <div class="wrapper wrapper-grey" data-label="{% trans 'Media & Downloads' %}">
+        <div class="content-wrapper content-section">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>{% trans 'Media & Downloads' %}</h1>
+                    <div class="row downloads">
+                        {% for document in solution.all_related_documents.all %}
+                        <div class="col-md-6">
+                            <div class="download-item">
+                                {% if document.thumbnail %}
+                                    <img src="{{ document.thumbnail }}" class="img-responsive"/>
+                                {% else %}
+                                    <img src="{% static 'frontend/images/downloads_01.jpg' %}" class="img-responsive"/>
+                                {% endif %}
+                                <div class="title-and-link">
+                                    <h4>{{ document.title }}</h4>
+                                    <p class="download-link">
+                                        <a href="{{ document.file }}"><span class="icon icon-file-pdf"></span>{% trans 'Download' %}</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        {% if forloop.last and not forloop.counter|divisibleby:2 %}
+                        <div class="col-md-6">
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if has_customers or has_projects or has_case_studies %}
+    <div class="wrapper wrapper-white" data-label="{% trans 'References' %}">
+        <div class="content-wrapper content-section">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>{% trans 'References' %}</h1>
+                    <ul class="nav nav-tabs tabs" role="tablist" data-toggle="tab">
+                        {% if has_customers %}
+                        <li role="presentation" class="activated">
+                            <a href="#customers" aria-controls="customers" role="tab" data-toggle="tab">{% trans 'Customers' %}</a>
+                        </li>
+                        {% endif %}
+                        {% if has_projects %}
+                        <li role="presentation" {% if not has_customers > 0 %}class="activated"{% endif %}>
+                            <a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">{% trans 'Projects' %}</a>
+                        </li>
+                        {% endif %}
+                        {# TODO: we need to add the case studies model #}
+                        {% if has_case_studies %}
+                        <li role="presentation" {% if not has_customers and not has_projects %}class="activated"{% endif %}>
+                            <a href="#case_studies" aria-controls="case_studies" role="tab" data-toggle="tab">{% trans 'Case Studies' %}</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    <div class="tab-content">
+                        {% if has_customers %}
+                            <div id="customers" class="tab-pane fade row active in" role="tabpanel">
+                                <div class="col-md-12 tab-section-content tab-section-content-grey">
+                                    <ul class="brand-logos">
+                                        {% for customer in solution.customers.all %}
+                                            <li><img class="img-responsive" src="{{ customer.logo }}"></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if has_projects %}
+                        <div role="tabpanel" class="tab-pane fade in {% if not has_customers %}active{% endif %} row" id="projects">
+                            <div class="col-md-12 tab-section-content tab-section-content-grey">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>{% trans 'Technology' %}</th>
+                                        <th>{% trans 'Agent' %}</th>
+                                        <th>{% trans 'Applications' %}</th>
+                                        <th>{% trans 'Solutions' %}</th>
+                                        <th>{% trans 'Characteristics' %}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for project in solution.projects.all %}
+                                    <tr>
+                                        <td>{{ project.get_technologies }}</td>
+                                        <td>{{ project.agent }}</td>
+                                        <td>{{ project.get_applications }}</td>
+                                        <td>{{ project.get_solutions }}</td>
+                                        <td>{{ project.characteristics }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if has_case_studies %}
+                            <div id="case_studies" class="tab-pane fade row active in" role="tabpanel">
+                                <div class="col-md-12 tab-section-content tab-section-content-grey">
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

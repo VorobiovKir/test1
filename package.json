@@ -1,0 +1,37 @@
+{
+  "name": "Minimax",
+  "version": "1.0.0",
+  "description": "The CMS to be used for Minimax's new website.",
+  "main": "gulpfile.js",
+  "author": "Kreios S.à.r.l. <info@kreios.lu>",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.0"
+  },
+  "devDependencies": {
+    "bower": "^1.6.3",
+    "browser-sync": "^2.9.11",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-copy": "0.0.2",
+    "gulp-flatten": "^0.2.0",
+    "gulp-htmlhint": "^0.3.0",
+    "gulp-jscs": "^3.0.1",
+    "gulp-jshint": "^1.11.2",
+    "gulp-less": "^3.0.3",
+    "gulp-preprocess": "^1.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "jshint-stylish": "^2.0.1",
+    "rimraf": "^2.4.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@stash.kreios.lu:7999/mgw/minimax-website.git"
+  }
+}

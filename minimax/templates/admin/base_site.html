@@ -1,0 +1,15 @@
+{% extends "admin/base.html" %}
+
+<!-- LOADING -->
+{% load i18n grp_tags utils %}
+{% load static from staticfiles %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link href="{% static "minimax/css/grappelli_customization.css" %}" rel="stylesheet" type="text/css" media="screen"/>
+  <link href="{% css_branding_file %}" rel="stylesheet" type="text/css" media="screen"/>
+  <link href="{% static "minimax/css/content_language_switcher.css" %}" rel="stylesheet" type="text/css" media="screen" />
+{% endblock %}
+
+
+{% block title %}{{ title }} | {% if grappelli_admin_title %}{{ grappelli_admin_title }}{% else %}{% get_admin_title %}{% endif %}{% endblock %}

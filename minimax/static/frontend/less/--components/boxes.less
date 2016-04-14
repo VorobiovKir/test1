@@ -1,0 +1,118 @@
+.boxes-container {
+
+  .col-md-4 {
+  }
+
+  .col-md-4:last-of-type {
+  }
+
+  .box-container {
+    display: block;
+    background: @medium-grey;
+    margin-bottom: @base-size;
+
+    &:hover {
+      background: @light-grey;
+      cursor: pointer;
+
+      .box-container-image {
+        background-color: @light-grey;
+      }
+    }
+
+    .box-container-image {
+      width: 35%;
+      background-color: @medium-grey;
+      background-position: center 15px;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      img {
+        display: none;
+      }
+    }
+
+    .box-container-content {
+      padding: @base-size * 0.6;
+
+      h2 {
+        color: @secondary-color;
+        font-size: 18px;
+      }
+
+      p {
+        margin-top: @base-size * 0.6;
+        font-size: 13px;
+      }
+    }
+
+    &.box-container-sunset-gold {
+      .box-container-image {
+        border-top: 15px solid @sunset-gold;
+      }
+    }
+
+    &.box-container-clay-brown {
+      .box-container-image {
+        border-top: 15px solid @clay-brown;
+      }
+    }
+
+    &.box-container-forest-green {
+      .box-container-image {
+        border-top: 15px solid @forest-green;
+      }
+    }
+
+    &.box-container-aubergine-purple {
+      .box-container-image {
+        border-top: 15px solid @aubergine-purple;
+      }
+    }
+
+    &.box-container-iron-blue {
+      .box-container-image {
+        border-top: 15px solid @iron-blue;
+      }
+    }
+  }
+
+  .box-container.image-left {
+    .box-container-content {
+      float: right;
+      width: 65%;
+    }
+
+    .box-container-image {
+      float: left;
+    }
+  }
+
+  .box-container.image-right {
+    .box-container-content {
+      float: left;
+      width: 65%;
+    }
+
+    .box-container-image {
+      float: right;
+    }
+  }
+}
+
+@media (max-width: @screen-sm) {
+  .boxes-container {
+
+    .box-container {
+      height: auto;
+
+      .box-container-image {
+        height: auto;
+      }
+
+      .box-container-content {
+        height: auto;
+      }
+    }
+  }
+}

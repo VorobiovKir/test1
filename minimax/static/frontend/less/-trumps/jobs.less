@@ -1,0 +1,41 @@
+.jobs {
+  .job-item {
+    margin-top: @base-size;
+    padding: 0 @base-size;
+    text-align: center;
+    color: @content-grey;
+
+    a {
+      font-size: 16px;
+      color: @secondary-color;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .image-mask {
+      margin: 0 auto (@base-size * 0.6);
+      display: block;
+      width: 210px;
+      height: 210px;
+
+      &:hover {
+
+        img {
+          top: -20px;
+          left: -20px;
+          height: 250px;
+        }
+      }
+
+      img {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        height: 210px;
+        .multi-transition(~"height, top, left", 300ms, "ease-in-out")
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+/* The modal dialog to be used for add image map point */
+.file-map-modal-wrapper {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 30001;
+    background: rgba(51, 51, 51, 0.3);
+}
+
+.file-map-modal {
+    position: fixed;
+    left: calc(50% - 310px);
+    top: 80px;
+    width: 620px;
+    min-height: 80px;
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 0 10px;
+    border: 1px solid #cecece;
+    z-index: 30002;
+}
+
+.file-map-modal img {
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    max-width: 100%;
+    /*max-height: 480px;*/
+    cursor: crosshair;
+}
+
+.file-map-modal .btn-cancel {
+    float: right;
+    width: 100px;
+    margin: 0 0 10px 0;
+}
+
+.image-select-point {
+    cursor: pointer;
+}
+
+.image-wrap {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.image-target-point {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: crosshair;
+    display: none;
+    background-color: tomato;
+    border-radius: 5px;
+    width: 5px;
+    height: 5px;
+}
+
+.grp-module .grp-cell.map_position_button .c-1 {
+    display: none !important;
+}
+
+.grp-module .map_position_button .c-2 .grp-readonly {
+    border: 0;
+}
+

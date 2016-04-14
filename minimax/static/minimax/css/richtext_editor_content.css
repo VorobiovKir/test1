@@ -1,0 +1,63 @@
+body#tinymce.mceContentBody {
+    padding: 10px 5px !important;
+    width: auto;
+}
+
+body#tinymce h1, body#tinymce h2, body#tinymce h3,body#tinymce h4, body#tinymce h5, body#tinymce h6, p {
+    margin: 3px 0;
+    color: #555;
+}
+
+body#tinymce h1 {
+    font-size: 19px;
+}
+
+body#tinymce, body#tinymce td, body#tinymce pre, body#tinymce ol, body#tinymce ul, body#tinymce li, body#tinymce th {
+    font-size: 12px !important;
+}
+
+body#tinymce p.lead {
+    font-size: 1.1em;
+}
+
+body#tinymce p.small {
+    font-size: 0.9em;
+}
+
+body#tinymce table.mceItemTable td {
+    border: 1px dashed #BBB !important;
+    margin: 0;
+    padding: 2px 10px;
+    background-color: #FFF;
+    color: #666 !important;
+}
+
+body#tinymce table.mceItemTable th {
+    border: 1px dashed #BBB !important;
+    margin: 0;
+    padding: 2px 10px;
+    background-color: #FFFFED;
+    color: #666 !important;
+    font-weight: bold;
+    text-align: left;
+}
+
+body#tinymce table.mceItemTable th p {
+    background-color: transparent;
+}
+
+body#tinymce table.mceItemTable {
+    border: 0;
+    background-color: #FFF;
+    margin-left: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 3px;
+    border-spacing: 3px;
+    border-collapse: separate;
+}
+
+body#tinymce table.mceItemTable p, body#tinymce table.mceItemTable h1, body#tinymce table.mceItemTable h2 {
+    margin-bottom: 0;
+    padding: 2px;
+}

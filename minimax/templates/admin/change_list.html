@@ -1,0 +1,14 @@
+{% extends "grappelli:admin/change_list_filter_sidebar.html" %}
+
+<!-- LOADING -->
+{% load i18n grp_tags utils %}
+
+<!-- BREADCRUMBS -->
+{% block breadcrumbs %}
+    {% if not is_popup %}
+        <ul class="grp-horizontal-list">
+            <li><a href="{% url 'admin:index' %}">{% trans "Home" %}</a></li>
+            <li>{{ cl.opts.verbose_name_plural|capfirst }}</li>
+        </ul>
+    {% endif %}
+{% endblock %}

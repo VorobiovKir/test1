@@ -1,0 +1,69 @@
+#content-language-switcher, #content-language-switcher-secondary {
+    margin-right: 5px;
+    margin-left: 5px;
+    border: 1px solid #AAA;
+    margin-bottom: 1px;
+    opacity: 1;
+    width: 100px;
+    transition: width 0.5s linear, opacity 1s linear;
+    min-width: 0 !important;
+}
+
+#content-language-switcher-secondary[disabled] {
+    opacity: 0;
+    width: 0;
+    transition: width 0.5s linear, opacity 1s linear;
+}
+
+.i18n-field-label-en:after {
+    content: url('../images/flags/us.png');
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.i18n-field-label-da:after {
+    content: url('../images/flags/dk.png');
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.i18n-field-label-de:after {
+    content: url('../images/flags/de.png');
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.i18n-field-label-es:after {
+    content: url('../images/flags/es.png');
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.i18n-field-label-fr:after {
+    content: url('../images/flags/fr.png');
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.i18n-field-label-it:after {
+    content: url('../images/flags/it.png');
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.i18n-field-label-nl:after {
+    content: url('../images/flags/nl.png');
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.i18n-field-label-sv:after {
+    content: url('../images/flags/sv.png');
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+#content-language-switcher-show-secondary {
+    margin-right: 0.5em;
+    position: relative;
+}

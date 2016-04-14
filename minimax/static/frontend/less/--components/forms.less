@@ -1,0 +1,39 @@
+form {
+  input[type=text] {
+    border: 2px solid @iron-grey;
+    background: none;
+    font-size: 16px;
+    padding: @base-size * 0.4;
+    padding-top: @base-size * 0.6;
+  }
+
+  input.icon {
+    padding-left: @base-size * 1.8;
+  }
+
+  input.icon-search {
+    background: url('../images/icon-search.png') no-repeat center left;
+    background-position: 10px;
+    background-size: 20px;
+    font-size: 15px;
+    padding: @base-size * 0.2;
+    padding-left: @base-size * 1.4;
+    padding-top: @base-size * 0.3;
+  }
+
+  input[type=submit] {
+    border: 2px solid @iron-grey;
+    background: none;
+    font-size: 16px;
+    padding: @base-size / 1.8;
+  }
+}
+
+form.search-form {
+  input[name=search] {
+    border-color: @light-grey;
+  }
+
+  input[type=submit] {
+  }
+}

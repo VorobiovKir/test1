@@ -1,0 +1,171 @@
+.job-testimonials {
+  .job-testimonial-item {
+    float: left;
+    padding: @base-size 0 0 0;
+
+
+    .job-testimonial-wrapper {
+      background: white;
+
+      &:hover {
+        cursor: pointer;
+        background: darken(white, 16%);
+      }
+
+      > div {
+        height: @base-size * 10;
+        padding: @base-size * 0.8;
+        position: relative;
+
+        h3 {
+          font-size: 22px;
+
+          span.job-title {
+            position: relative;
+            top: -5px;
+            display: block;
+            font-size: 14px;
+            color: @header-border-color;
+          }
+        }
+
+        quote {
+          display: block;
+          margin-bottom: @base-size * 0.5;
+        }
+
+        .btn {
+          position: absolute;
+          bottom: @base-size;
+          right: @base-size;
+        }
+      }
+    }
+  }
+
+  .job-testimonial-horizontal {
+    width: 66%;
+
+    .job-testimonial-wrapper {
+      height: @base-size * 10;
+
+      > div {
+        width: 66%;
+        float: right;
+      }
+
+      .image {
+        width: 34%;
+        height: @base-size * 10;
+        float: left;
+
+        background-size: cover;
+        background-position: center center;
+      }
+    }
+  }
+
+  .job-testimonial-vertical {
+    width: 34%;
+    float: right;
+    padding: @base-size 0px 0px @base-size;
+
+    .job-testimonial-wrapper {
+      height: (@base-size * 20) + @base-size;
+
+      > div {
+        height: 50%;
+
+        .btn {
+          bottom: @base-size - 13;
+        }
+      }
+
+      .image {
+        width: 100%;
+        height: @base-size * 10;
+
+        background-size: cover;
+        background-position: center center;
+      }
+    }
+  }
+
+  .job-testimonial-vertical-left {
+    float: left;
+    padding: @base-size @base-size @base-size 0px;
+    width: 34%;
+
+    .job-testimonial-wrapper {
+
+    }
+  }
+
+}
+
+@media screen and (max-width: 1215px) {
+  .job-testimonials .job-testimonial-horizontal,
+  .job-testimonials .job-testimonial-vertical,
+  .job-testimonials .job-testimonial-vertical-left {
+    width: 100%;
+  }
+
+  .job-testimonials .job-testimonial-vertical .job-testimonial-wrapper {
+    height: 250px;
+  }
+
+  .job-testimonials .job-testimonial-vertical,
+  .job-testimonials .job-testimonial-vertical-left {
+    padding: 25px 0 0 0;
+    float: left;
+  }
+
+  .job-testimonials .job-testimonial-vertical .job-testimonial-wrapper > div {
+    width: 66%;
+    float: left;
+  }
+
+  .job-testimonials .job-testimonial-vertical .job-testimonial-wrapper .image {
+    width: 34%;
+    float: left;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .job-testimonials .job-testimonial-horizontal,
+  .job-testimonials .job-testimonial-vertical,
+  .job-testimonials .job-testimonial-vertical-left {
+    width: 100%;
+  }
+
+  .job-testimonials .job-testimonial-vertical,
+  .job-testimonials .job-testimonial-vertical-left {
+    padding: 25px 0 0 0;
+  }
+
+  .job-testimonials .job-testimonial-horizontal .job-testimonial-wrapper {
+    height: 525px;
+    position: relative;
+  }
+
+  .job-testimonials .job-testimonial-horizontal .job-testimonial-wrapper .image,
+  .job-testimonials .job-testimonial-vertical .job-testimonial-wrapper .image {
+    width: 100%;
+    height: 30%;
+    background-size: cover;
+    background-position: center center;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .job-testimonials .job-testimonial-horizontal .job-testimonial-wrapper > div,
+  .job-testimonials .job-testimonial-vertical .job-testimonial-wrapper > div {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 70%;
+    padding: 20px;
+  }
+}

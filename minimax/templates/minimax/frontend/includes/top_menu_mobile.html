@@ -1,0 +1,35 @@
+<ul>
+    <li class="home"><a href="{% url 'home' region=region.code|default:'GL' language_code=language_code|default:'en' %}" title="Home"><span class="icon-home"></span><span
+            class="title">Home</span></a></li>
+    {% for item in menu_items %}
+        <li {% if item.menu_class %}class="{{ item.menu_class }}"{% endif %}>
+            <a href="#" title="{{ item.name }}">{{ item.name }}</a>
+            {% if item.children %}
+                <ul class="square-items">
+                    {% for child in item.children %}
+                        <li>
+                            {% if child.type == 'STANDARD' %}
+                                <a href="/{{ region.code }}/{{ language_code }}{{ child.url }}">{{ child.name }}</a>
+                            {% else %}
+                                <a href="#">{{ child.name }}</a>
+                            {% endif %}
+                            {% if child.children %}
+                                <ul class="square-items">
+                                    {% for grandchild in child.children %}
+                                        <li>
+                                            {% if grandchild.type == 'STANDARD' %}
+                                                <a href="/{{ region.code }}/{{ language_code }}{{ grandchild.url }}">{{ grandchild.name }}</a>
+                                            {% else %}
+                                                <a href="#">{{ grandchild.name }}</a>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif%}
+        </li>
+    {% endfor %}
+</ul>

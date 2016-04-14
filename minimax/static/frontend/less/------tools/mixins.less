@@ -1,0 +1,333 @@
+/* Custom mixins */
+
+.float(@width) {
+  float: left;
+  width: @width;
+}
+
+.no-select {
+  user-select: none;
+  -o-user-select:none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+}
+
+.placeholder(@color) {
+    &::-webkit-input-placeholder {
+        color: @color;
+    }
+    &:-moz-placeholder {
+        color: @color;
+    }
+    &::-moz-placeholder {
+        color: @color;
+    }
+    &:-ms-input-placeholder {
+        color: @color;
+    }
+}
+
+/* Default mixins */
+
+.triangle-base() {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  -moz-transform: scale(.9999);
+}
+.triangle(@direction, @size, @color) {
+  .triangle(@direction, @size * 2, @size, @color);
+}
+.triangle(@direction, @width, @height, @color) when (@direction = up) {
+  .triangle-base();
+  border-left: (@width / 2) solid transparent;
+  border-right: (@width / 2) solid transparent;
+  border-bottom: @height solid @color;
+}
+.triangle(@direction, @width, @height, @color) when (@direction = down) {
+  .triangle-base();
+  border-left: (@width / 2) solid transparent;
+  border-right: (@width / 2) solid transparent;
+  border-top: @height solid @color;
+}
+.triangle(@direction, @width, @height, @color) when (@direction = left) {
+  .triangle-base();
+  border-top: (@width / 2) solid transparent;
+  border-bottom: (@width / 2) solid transparent;
+  border-right: @height solid @color;
+}
+.triangle(@direction, @width, @height, @color) when (@direction = right) {
+  .triangle-base();
+  border-top: (@width / 2) solid transparent;
+  border-bottom: (@width / 2) solid transparent;
+  border-left: @height solid @color;
+}
+
+.text-shadow (@string: 0 1px 3px rgba(0, 0, 0, 0.25)) {
+	text-shadow: @string;
+}
+.box-shadow (@string) {
+	-webkit-box-shadow: @string;
+	-moz-box-shadow:    @string;
+	box-shadow:         @string;
+}
+.drop-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
+	-webkit-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
+	-moz-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
+	box-shadow:		@x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+.inner-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
+	-webkit-box-shadow: inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+	-moz-box-shadow:    inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+	box-shadow:         inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+
+.box-sizing (@type: border-box) {
+	-webkit-box-sizing: @type;
+	-moz-box-sizing:    @type;
+	box-sizing:         @type;
+}
+
+.border-radius (@radius: 5px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius:    @radius;
+	border-radius:         @radius;
+
+	-moz-background-clip:    padding;
+	-webkit-background-clip: padding-box;
+	background-clip:         padding-box;
+}
+.border-radiuses (@topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0) {
+	-webkit-border-top-right-radius:    @topright;
+	-webkit-border-bottom-right-radius: @bottomright;
+	-webkit-border-bottom-left-radius:  @bottomleft;
+	-webkit-border-top-left-radius:     @topleft;
+
+	-moz-border-radius-topright:        @topright;
+	-moz-border-radius-bottomright:     @bottomright;
+	-moz-border-radius-bottomleft:      @bottomleft;
+	-moz-border-radius-topleft:         @topleft;
+
+	border-top-right-radius:            @topright;
+	border-bottom-right-radius:         @bottomright;
+	border-bottom-left-radius:          @bottomleft;
+	border-top-left-radius:             @topleft;
+
+	-moz-background-clip:    padding;
+	-webkit-background-clip: padding-box;
+	background-clip:         padding-box;
+}
+
+.opacity (@opacity: 0.5) {
+	-webkit-opacity: 	@opacity;
+	-moz-opacity: 		@opacity;
+	opacity: 		@opacity;
+}
+
+.gradient (@startColor: #eee, @endColor: white) {
+	background-color: @startColor;
+	background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+	background: -webkit-linear-gradient(top, @startColor, @endColor);
+	background: -moz-linear-gradient(top, @startColor, @endColor);
+	background: -ms-linear-gradient(top, @startColor, @endColor);
+	background: -o-linear-gradient(top, @startColor, @endColor);
+}
+.horizontal-gradient (@startColor: #eee, @endColor: white) {
+ 	background-color: @startColor;
+	background-image: -webkit-gradient(linear, left top, right top, from(@startColor), to(@endColor));
+	background-image: -webkit-linear-gradient(left, @startColor, @endColor);
+	background-image: -moz-linear-gradient(left, @startColor, @endColor);
+	background-image: -ms-linear-gradient(left, @startColor, @endColor);
+	background-image: -o-linear-gradient(left, @startColor, @endColor);
+}
+
+.animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
+	-webkit-animation: @name @duration @delay @ease;
+	-moz-animation:    @name @duration @delay @ease;
+	-ms-animation:     @name @duration @delay @ease;
+}
+
+.transition(@transition) {
+	-webkit-transition: @transition;
+	-moz-transition:    @transition;
+	-ms-transition:     @transition;
+	-o-transition:      @transition;
+}
+.multi-transition( @property, @duration, @style: ease-in-out ) {
+  -webkit-transition-property: @property;
+  -webkit-transition-duration: @duration;
+  -webkit-transition-timing-function: @style;
+
+  -moz-transition-property: @property;
+  -moz-transition-duration: @duration;
+  -moz-transition-timing-function: @style;
+
+  -ms-transition-property: @property;
+  -ms-transition-duration: @duration;
+  -ms-transition-timing-function: @style;
+
+  -o-transition-property: @property;
+  -o-transition-duration: @duration;
+  -o-transition-timing-function: @style;
+
+  transition-property: @property;
+  transition-duration: @duration;
+  transition-timing-function: @style;
+}
+
+
+.transform(@string){
+	-webkit-transform: @string;
+	-moz-transform: 	 @string;
+	-ms-transform: 		 @string;
+	-o-transform: 		 @string;
+}
+.scale (@factor) {
+	-webkit-transform: scale(@factor);
+	-moz-transform: 	 scale(@factor);
+	-ms-transform: 		 scale(@factor);
+	-o-transform: 		 scale(@factor);
+}
+.rotate (@deg) {
+	-webkit-transform: rotate(@deg);
+	-moz-transform: 	 rotate(@deg);
+	-ms-transform: 		 rotate(@deg);
+	-o-transform: 		 rotate(@deg);
+}
+.skew (@deg, @deg2) {
+	-webkit-transform:       skew(@deg, @deg2);
+	-moz-transform: 	 skew(@deg, @deg2);
+	-ms-transform: 		 skew(@deg, @deg2);
+	-o-transform: 		 skew(@deg, @deg2);
+}
+.translate (@x, @y:0) {
+	-webkit-transform:       translate(@x, @y);
+	-moz-transform: 	 translate(@x, @y);
+	-ms-transform: 		 translate(@x, @y);
+	-o-transform: 		 translate(@x, @y);
+}
+.translate3d (@x, @y: 0, @z: 0) {
+	-webkit-transform:       translate3d(@x, @y, @z);
+	-moz-transform: 	 translate3d(@x, @y, @z);
+	-ms-transform: 		 translate3d(@x, @y, @z);
+	-o-transform: 		 translate3d(@x, @y, @z);
+}
+.perspective (@value: 1000) {
+	-webkit-perspective: 	@value;
+	-moz-perspective: 	@value;
+	-ms-perspective: 	@value;
+	perspective: 		@value;
+}
+.transform-origin (@x:center, @y:center) {
+	-webkit-transform-origin: @x @y;
+	-moz-transform-origin:    @x @y;
+	-ms-transform-origin:     @x @y;
+	-o-transform-origin:      @x @y;
+}
+
+.SubNav() {
+  .SubSubNav();
+
+  > ul {
+    margin: 32px 0;
+    float: left;
+    width: 40%;
+
+    > li {
+      display: block;
+      line-height: @base-size * 1.6;
+
+      > span.icon {
+        display: block;
+        float: left;
+        background: white;
+        color: @sub-nav-main-color;
+        font-size: @base-size;
+        position: relative;
+        top: 5px;
+      }
+
+      > a {
+        display: block;
+        margin-left: @base-size * 1.2;
+        padding-left: @base-size * 0.4;
+        color: @sub-nav-tertiary-color;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      &:hover {
+        > a {
+          color: @sub-nav-main-color;
+        }
+      }
+
+
+      > ul {
+        display: none;
+      }
+    }
+
+    > li.active {
+      a {
+        color: @sub-nav-main-color;
+        background: @sub-nav-secondary-color;
+      }
+    }
+  }
+}
+
+.SubSubNav() {
+  .sub-sub-nav {
+    width: 60%;
+    float: right;
+    background: @sub-nav-secondary-color;
+
+    > ul {
+      padding: 32px;
+
+      li {
+        display: block;
+        line-height: @base-size * 1.6;
+
+        &:hover {
+          > span.icon {
+            color: @primary-color;
+          }
+
+          > a {
+            color: @primary-color;
+          }
+        }
+
+        > span.icon {
+          display: block;
+          float: left;
+          color: @sub-nav-main-color;
+          font-size: @base-size;
+          position: relative;
+          top: 5px;
+        }
+
+        > a {
+          display: block;
+          margin-left: @base-size * 1.2;
+          padding-left: @base-size * 0.4;
+          color: @sub-nav-main-color;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.SubNavWithColors(@sub-nav-main-color, @sub-nav-secondary-color, @sub-nav-tertiary-color) {
+  .SubNav();
+}

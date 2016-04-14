@@ -1,0 +1,47 @@
+"""
+HEROKU APPLICATION SETTINGS
+==========================
+
+The main purpose of this file is to contain those settings that are (potentially)
+dependent on the actual environment on which the application is to be deployed.
+
+For the actual (default) settings of Django itself please consult the
+settings.py that is included as part of the "*_site" folder in question.
+"""
+
+# Determine the root location of the project itself
+import os.path
+
+# The default database configuration using dj_database_url.
+import dj_database_url
+
+BASE_DIR = os.path.dirname(os.path.abspath(os.path.join(__file__, os.path.pardir)))
+
+# Whether or not to have the application output additional debug
+# information when running or encountering an error condition
+DEBUG = True
+
+# Whether or not to have the application output additional debug information
+# whenever the application encounters a syntax error within one of its templates
+TEMPLATE_DEBUG = True
+
+# The database back-end to be used
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+    }
+}
+
+# Settings for testing the Django e-mail notifications (logging).
+# Test via command line input: python -m smtpd -n -c DebuggingServer localhost:1025
+# (Source: http://stackoverflow.com/a/1414147/461544)
+# Sending an e-mail can be triggered via the command line, as described here:
+# http://ltslashgt.com/2007/07/02/gmail-and-django/
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = '1025'
+
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = '98&amp;om_!e9kchav8n-l^+!qaq9c3225*2i^b24ji-w==h+c-nwq'

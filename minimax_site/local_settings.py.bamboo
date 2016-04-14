@@ -1,0 +1,64 @@
+"""
+LOCAL APPLICATION SETTINGS
+==========================
+
+The main purpose of this file is to contain those settings that are (potentially)
+dependent on the actual environment on which the application is to be deployed.
+
+For the actual (default) settings of Django itself please consult the
+settings.py that is included as part of the "*_site" folder in question.
+"""
+
+# Determine the root location of the project itself
+import os.path
+PROJECT_DIR = os.path.dirname(os.path.abspath(os.path.join(__file__, os.path.pardir)))
+
+# Whether or not to have the application output additional debug
+# information when running or encountering an error condition
+DEBUG = True
+
+# Whether or not to have the application output additional debug information
+# whenever the application encounters a syntax error within one of its templates
+TEMPLATE_DEBUG = DEBUG
+
+# The list of people who'll receive e-mail notifications whenever
+# Django encounters an unexpected error condition at runtime 
+ADMINS = (
+    # ('Your Name', 'your_email@example.com'),
+)
+
+# The list of people who'll receive e-mail notifications whenever
+# Django encounters a broken-link error condition at runtime
+MANAGERS = ADMINS
+
+# The database back-end to be used
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'docker',
+        #'USER': 'docker',
+        #'PASSWORD': 'docker',
+        #'HOST': '0.0.0.0',
+        #'PORT': '5432',
+        #'TEST_CHARSET': 'UTF8',
+    }
+}
+
+# Settings for testing the Django e-mail notifications (logging).
+# Test via command line input: python -m smtpd -n -c DebuggingServer localhost:1025
+# (Source: http://stackoverflow.com/a/1414147/461544)
+# Sending an e-mail can be triggered via the command line, as described here:
+# http://ltslashgt.com/2007/07/02/gmail-and-django/
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = '1025'
+
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = '98&amp;om_!e9kchav8n-l^+!qaq9c3225*2i^b24ji-w==h+c-nwq'
+
+# Disable template caching for development
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+    'minimax.loaders.Loader',
+)

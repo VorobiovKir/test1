@@ -1,0 +1,113 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="description" content="Minimax. Minimize risk, maximize protection." />
+    <meta name="keywords" content="minimax, fire protection">
+    <meta name="author" content="Kreios - http://www.kreios.lu">
+    <meta name="copyright" content="© Kreios">
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <title>Minimax</title>
+
+    <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon"/>
+    <link href='https://fonts.googleapis.com/css?family=Istok+Web' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'minimax/css/app.css' %}"/>
+  </head>
+
+
+  <body class="page page-people-akademie">
+    {% include 'minimax/frontend/includes/header.html' %}
+    <div class="slider">
+      <div class="slider-left-boxes">
+        <span class="red-box"></span>
+      </div>
+      <div class="slider-right-boxes"></div>
+      <div class="slides">
+        <div class="slide">
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="slide-caption">
+                  <h2>Berufliche Bildung als wichtigste Investition in die Mitarbeiter</h2>
+                  <p>Die treibende Kraft unseres Unternehmens sind die Menschen. Sie bringen neue Ideen ein und tragen dazu bei, innovativ und wettbewerbsfähig zu bleiben.</p>
+                  <p>Wir begleiten unsere Mitarbeiter entlang ihrer individuellen Lebensphasen und bieten ihnen jeweils passende Weiterbildungsangebote.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper wrapper-grey" data-label="Einführung">
+      <div class="content-wrapper content-section">
+        <div class="row row-no-margin-left row-no-margin-right">
+          <div class="col-md-12 row-match-height">
+            <h2>Minimax Akademie</h2>
+            <p>Von Softskills zu technischem Know-how: kontinuierliche Weiterbildung stärkt Mitarbeiter und Unternehmen für künftige Herausforderungen. Vor diesem Hintergrund bieten unsere zwei Minimax internen Akademien die Möglichkeit, sich kontinuierlich in unterschiedlichen Themengebieten fortzubilden.</p>
+            <p>Weiterbildung spielt eine bedeutende Rolle für Minimax.  Zum einen gibt es den Bereich der Technischen Akademie, zum anderen den Bereich der Mitarbeiter- und Führungskräfteakademie sowie auch gemeinsam veranstaltete Programme. Lebenslanges Lernen gilt als Trainingsphilosophie. Die Seminare sind Orte des Lernens, des persönlichen und fachlichen Austausches und der unternehmensweiten Vernetzung.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="wrapper wrapper-white" data-label="Minimax Mitarbeiter- und Führungskräfteakademie">
+      <div class="content-wrapper content-section">
+        <div class="row row-no-margin-left row-no-margin-right">
+          <div class="col-md-8 row-match-height">
+            <h2>Minimax Mitarbeiter- und Führungskräfteakademie</h2>
+            <p>Die Minimax Mitarbeiter- und Führungskräfteakademie bietet ein breit gefächertes Angebot. Dieses ist für verschiedene Zielgruppen vom Vertrieb über die Projektabwicklung, Montage, Service bis hin zu Administration und Verwaltung ausgerichtet. Für  das Gesamtkonzept verantwortlich und den Mitarbeitern und Führungskräften ein verlässlicher Partner ist die Personalentwicklung. Anhand moderner Trainingsformate und qualifizierter Trainer werden Standardseminare in den folgenden Bereichen angeboten:</p>
+            <ul class="square-items small-items">
+              <li>IT</li>
+              <li>Kaufmännisch</li>
+              <li>Arbeitssicherheit</li>
+              <li>Fremdsprachen</li>
+              <li>Führung</li>
+              <li>Vertrieb</li>
+              <li>Spezifische Qualifizierungsprogramme</li>
+            </ul>
+          </div>
+          <div class="col-md-4 row-match-height">
+            <img src="{% static 'frontend/images/people-akademie_01.jpg' %}" class="img-responsive" />
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="wrapper wrapper-grey" data-label="Minimax Technische Akademie">
+      <div class="content-wrapper content-section">
+        <div class="row row-no-margin-left row-no-margin-right">
+          <div class="col-md-4 row-match-height">
+            <img src="{% static 'frontend/images/people-akademie_02.jpg' %}" class="img-responsive" />
+          </div>
+          <div class="col-md-8 row-match-height">
+            <h2>Minimax Technische Akademie</h2>
+            <p>Technisches Know-how zeichnet Minimax aus. Um Mitarbeiter dafür zu rüsten, sowie Innovation und Fortschritt voran zu treiben, gibt es das Technische Trainingscenter mit einem mehrköpfigen Trainerteam. Praxisnahes Lernen steht an oberster Stelle. Anhand von Exponaten werden Kenntnisse und Kompetenzen der Mitarbeiter vertieft.</p>
+            <p>Was steht auf dem Lehrplan? Die technischen Details, Neuerungen und das Zusammenspiel komplexer Systeme der verschiedenen Sparten der Brandschutztechnik:</p>
+            <ul class="square-items small-items">
+              <li>Wasserlöschanlagen</li>
+              <li>Speziallöschanlagen</li>
+              <li>Brandmeldeanlagen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    {% include 'minimax/frontend/includes/footer.html' %}
+    
+
+    <div class="navigation-dots">
+      <ul>
+      </ul>
+    </div>
+    
+
+    <script type="text/javascript" src="{% static 'minimax/js/app.js' %}"></script>
+  </body>
+</html>
+

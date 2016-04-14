@@ -1,0 +1,59 @@
+.wrapper-white table thead tr {
+  border-bottom: 2px solid @iron-grey;
+}
+
+.wrapper-grey table thead tr {
+  border-bottom: 2px solid white;
+}
+
+.tabs-container table thead tr {
+  border-bottom: 2px solid @content-grey;
+}
+
+.wrapper-white table tbody tr {
+  border-bottom: 1px solid lighten(@iron-grey, 30%);
+}
+
+.wrapper-grey table tbody tr {
+  border-bottom: 1px solid white;
+}
+
+.tabs-container table tbody tr {
+  border-bottom: 1px solid lighten(@content-grey, 30%);
+}
+
+table {
+  width: 100%;
+  
+  thead {
+    color: black;
+    font-weight: bold;
+
+    tr {
+      padding-left: @base-size;
+
+      th:first-child {
+        padding-left: @base-size * 0.5;
+      }
+
+      th {
+        line-height: @base-size * 1.8;
+        padding-right: @base-size * 0.5;
+      }
+    }
+
+  }
+
+  tbody {
+    tr {
+      td:first-child {
+        padding-left: @base-size * 0.5;
+      }
+
+      td {
+        line-height: @base-size * 1.8;
+        padding-right: @base-size * 0.5;
+      }
+    }
+  }
+}
