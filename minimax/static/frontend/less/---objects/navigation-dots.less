@@ -1,0 +1,51 @@
+.navigation-dots {
+  z-index: 1000;
+  position: fixed;
+  right: 15px;
+
+  // background: rgba(0, 0, 0, 0.4);
+  // width: 24px;
+  // padding: 4px 7px;
+  .border-radius(10px);
+  text-align: center;
+
+  ul {
+
+    li {
+      display: block;
+      margin: 7px;
+
+      .tooltip > .tooltip-inner {
+        background-color: @secondary-color;
+        padding: 12px;
+        font-size: 14px;
+        width: 160px;
+      }
+
+      .tooltip > .tooltip-arrow {
+        border-left-color: @secondary-color !important;
+      }
+
+      .tooltip {
+      }
+
+      a {
+        display: block;
+        width: 14px;
+        height: 14px;
+        background: rgba(255, 255, 255, 0.6);
+        .border-radius(50%);
+        .transition(background 250ms linear);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+
+        &:hover {
+          background: @iron-blue !important;
+        }
+      }
+
+      a.active {
+        background: @secondary-color;
+      }
+    }
+  }
+}

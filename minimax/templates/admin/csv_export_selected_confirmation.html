@@ -1,0 +1,13 @@
+{% extends "grappelli:admin/csv_export_selected_confirmation.html" %}
+
+<!-- LOADING -->
+{% load i18n grp_tags utils %}
+
+<!-- BREADCRUMBS -->
+{% block breadcrumbs %}
+    <ul class="grp-horizontal-list">
+        <li><a href="{% url 'admin:index' %}">{% trans "Home" %}</a></li>
+        <li><a href="./">{{ opts.verbose_name_plural|capfirst }}</a></li>
+        <li>{% trans 'Export selection as CSV' %}</li>
+    </ul>
+{% endblock %}

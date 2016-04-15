@@ -1,0 +1,639 @@
+{% load static from staticfiles %}
+{% load i18n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ LANGUAGE_CODE }}" xml:lang="{{ LANGUAGE_CODE }}">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="description" content="Minimax. Minimize risk, maximize protection." />
+    <meta name="keywords" content="minimax, fire protection">
+    <meta name="author" content="Kreios - http://www.kreios.lu">
+    <meta name="copyright" content="© Kreios">
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <title>Minimax</title>
+
+    <link rel="shortcut icon" href="{% static 'frontend/images/favicon.ico' %}" type="image/x-icon"/>
+    <link href='https://fonts.googleapis.com/css?family=Istok+Web' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'frontend/css/app.css' %}"/>
+  </head>
+
+
+  <body class="page {% block body_class %}{% endblock %}">
+    {% include 'minimax/frontend/includes/header.html' %}
+    {% block body_content %}
+        {% block slider %}
+        <div class="slider">
+          <div class="slider-left-boxes">
+            <span class="red-box"></span>
+          </div>
+          <div class="slider-right-boxes"></div>
+          <div class="slides">
+            <div class="slide">
+              <div id="slider" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#slider" data-slide-to="0" class="active"></li>
+                  <li data-target="#slider" data-slide-to="1"></li>
+                  <li data-target="#slider" data-slide-to="2"></li>
+                  <li data-target="#slider" data-slide-to="3"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                  <div class="item active slide-01">
+                    <div class="content-wrapper">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="slide-caption">
+                            <h2>Green Building</h2>
+                            <h3>Mit Minimax einen Beitrag zu mehr Nachhaltigkeit leisten</h3>
+                            <a href="/solutions/" class="btn btn-large force-background">
+                              <span class="icon icon-arrow-right"></span>
+                              Erfahren Sie mehr
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item slide-02">
+                    <div class="content-wrapper">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="slide-caption">
+                            <h2>Neue Planer-Workshops</h2>
+                            <h3>Erstmals finden wieder Workshops speziell für Planer statt, die Brandschutz-Know-how praxisnah vermitteln</h3>
+                            <a href="#" class="btn btn-large force-background">
+                              <span class="icon icon-arrow-right"></span>
+                              Erfahren Sie mehr
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item slide-03">
+                    <div class="content-wrapper">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="slide-caption">
+                            <h2>Hohe Flexibilität für Rechenzentren</h2>
+                            <h3>Oxeo Löschsysteme sind bei Umbau- und Erweiterungsmaßnahmen bestens geeignet</h3>
+                            <a href="/technologies/" class="btn btn-large force-background">
+                              <span class="icon icon-arrow-right"></span>
+                              Erfahren Sie mehr
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item slide-04">
+                    <div class="content-wrapper">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="slide-caption">
+                            <h2>Minimaler Wassereinsatz</h2>
+                            <h3>Bis zu 85% weniger Löschwasser im Vergleich zu klassischen Sprinkleranlagen</h3>
+                            <a href="#" class="btn btn-large force-background">
+                              <span class="icon icon-arrow-right"></span>
+                              Erfahren Sie mehr
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- slider -->
+        {% endblock slider %}
+    
+
+    <div class="wrapper wrapper-grey" data-label="Brandschutzl&ouml;sungen für jeden Anwendungsfall">
+      <div class="content-wrapper content-section">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Brandschutzl&ouml;sungen für jeden Anwendungsfall</h2>
+            <form class="tab-search hidden-xs hidden-sm">
+              <input type="text" name="search" placeholder="Search" class="icon icon-search" />
+            </form>
+            <ul class="nav nav-tabs tabs" role="tablist" data-toggle="tab">
+              <li role="presentation" class="active hidden"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+              <li role="presentation"><a href="#industry" aria-controls="industry" role="tab" data-toggle="tab">Industrie</a></li>
+              <li role="presentation"><a href="#ships" aria-controls="ships" role="tab" data-toggle="tab">Marine</a></li>
+              <li role="presentation"><a href="#energy" aria-controls="energy" role="tab" data-toggle="tab">Energie</a></li>
+              <li role="presentation"><a href="#logistics" aria-controls="logistics" role="tab" data-toggle="tab">Logistik &amp; Handel</a></li>
+              <li role="presentation"><a href="#infrastructure" aria-controls="infrastructure" role="tab" data-toggle="tab">Infrastruktur</a></li>
+            </ul>
+    
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane fade in active row" id="home">
+                <div class="col-md-12 tab-section-content tab-section-content-white">
+                  <h2>Ob in Automobilwerken, Kraftwerken, Logistikzentren, Büro- und Verwaltungsgebäuden, Data Centern oder auf Schiffen - wo immer Brandgefahren drohen, liefert Minimax maßgeschneiderte Lösungen.</h2>
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4">
+                      <h3 class="boxed">Suchen Sie hier nach Lösungen für Ihre Branche</h3>
+                    </div>
+                    <div class="col-md-2 col-sm-2 hidden-xs">
+                      <img src="{% static 'images/home-tabs-01.jpg' %}" class="img-responsive" />
+                    </div>
+                    <div class="col-md-2 col-sm-2 hidden-xs">
+                      <img src="{% static 'images/home-tabs-02.jpg' %}" class="img-responsive" />
+                    </div>
+                    <div class="col-md-2 col-sm-2 hidden-xs">
+                      <img src="{% static 'images/home-tabs-03.jpg' %}" class="img-responsive" />
+                    </div>
+                    <div class="col-md-2 col-sm-2 hidden-xs">
+                      <img src="{% static 'images/home-tabs-04.jpg' %}" class="img-responsive" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane fade row" id="industry">
+                <div class="col-md-3 tab-section-left match-height">
+                  <ul class="tabs" role="tablist" data-toggle="tab">
+                    <li class="activated"><span class="icon-arrow-right"></span><a href="#food" role="tab" data-toggle="tab">Nahrungsmittel</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#wood" role="tab" data-toggle="tab">Holz</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#paper" role="tab" data-toggle="tab">Papier und Druck</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#textile" role="tab" data-toggle="tab">Textil und Leder</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#chemicals" role="tab" data-toggle="tab">Chemie</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#iron" role="tab" data-toggle="tab">Stahl</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#automobile" role="tab" data-toggle="tab">Automobil</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#more" role="tab" data-toggle="tab">Weitere</a></li>
+                  </ul>
+                </div>
+                <div class="tab-content tab-content-no-bottom-margin">
+                  <div role="tabpanel" class="tab-pane tab-sub-pane fade in active row" id="food">
+                    <div class="col-md-6 tab-section-content tab-section-content-grey match-height">
+                      <h2>Nahrungsmittel</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div class="col-md-3 tab-section-right tab-section-content-grey match-height">
+                      <img src="{% static 'images/home-tabs-11.jpg' %}" class="img-responsive" />
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="wood">
+                    <div class="col-md-6 tab-section-content tab-section-content-grey match-height">
+                      <h2>Holz</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div class="col-md-3 tab-section-right tab-section-content-grey match-height">
+                      <img src="{% static 'images/home-tabs-03.jpg' %}" class="img-responsive" />
+                    </div>
+                  </div>
+    
+                  <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="paper">
+                    <div class="col-md-6 tab-section-content tab-section-content-grey match-height">
+                      <h2>Papier und Druck</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div class="col-md-3 tab-section-right tab-section-content-grey match-height">
+                      <img src="{% static 'images/home-tabs-08.jpg' %}" class="img-responsive" />
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="textile">
+                    <div class="col-md-6 tab-section-content tab-section-content-grey match-height">
+                      <h2>Textil und Leder</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div class="col-md-3 tab-section-right tab-section-content-grey match-height">
+                      <img src="{% static 'images/home-tabs-08.jpg' %}" class="img-responsive" />
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="chemicals">
+                    <div class="col-md-6 tab-section-content tab-section-content-grey match-height">
+                      <h2>Chemie</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div class="col-md-3 tab-section-right tab-section-content-grey match-height">
+                      <img src="{% static 'images/home-tabs-08.jpg' %}" class="img-responsive" />
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="iron">
+                    <div class="col-md-6 tab-section-content tab-section-content-grey match-height">
+                      <h2>Stahl</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div class="col-md-3 tab-section-right tab-section-content-grey match-height">
+                      <img src="{% static 'images/home-tabs-08.jpg' %}" class="img-responsive" />
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="automobile">
+                    <div class="col-md-6 tab-section-content tab-section-content-grey match-height">
+                      <h2>Automobil</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="{% url 'solutions' %}" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div class="col-md-3 tab-section-right tab-section-content-grey match-height">
+                      <img src="{% static 'images/home-tabs-08.jpg' %}" class="img-responsive" />
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="more">
+                    <div class="col-md-6 tab-section-content tab-section-content-grey match-height">
+                      <h2>Weitere</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div class="col-md-3 tab-section-right tab-section-content-grey match-height">
+                      <img src="{% static 'images/home-tabs-08.jpg' %}" class="img-responsive" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane fade row" id="ships">
+                <div class="col-md-3 tab-section-left match-height">
+                  <ul class="tabs" role="tablist" data-toggle="tab">
+                    <li class="activated"><span class="icon-arrow-right"></span><a href="#specials" role="tab" data-toggle="tab">Spezialschiff</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#passengers" role="tab" data-toggle="tab">Passagierschiff</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#tank" role="tab" data-toggle="tab">Tankschiff</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#freight" role="tab" data-toggle="tab">Schüttgutfrachter</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#containers" role="tab" data-toggle="tab">Containerschiff</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-6 tab-section-content tab-section-content-grey match-height">
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade in active row" id="specials">
+                      <h2>Spezialschiff</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="passengers">
+                      <h2>Passagierschiff</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="tank">
+                      <h2>Tankschiff</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="freight">
+                      <h2>Schüttgutfrachter</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="containers">
+                      <h2>Containerschiff</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 tab-section-right tab-section-content-grey match-height">
+                  <img src="{% static 'images/home-tabs-10.jpg' %}" class="img-responsive" />
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane fade row" id="energy">
+                <div class="col-md-3 tab-section-left match-height">
+                  <ul class="tabs" role="tablist" data-toggle="tab">
+                    <li class="activated"><span class="icon-arrow-right"></span><a href="#cole" role="tab" data-toggle="tab">Kohlekraftwerk</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#oil" role="tab" data-toggle="tab">Gas-/Ölkraftwerk</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#wind" role="tab" data-toggle="tab">Windenergie</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#water" role="tab" data-toggle="tab">Wasserkraftwerk</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#solar" role="tab" data-toggle="tab">Solarkraftwerk</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#sub" role="tab" data-toggle="tab">Umspannwerk</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#trash" role="tab" data-toggle="tab">Müllverbrennung</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#recycling" role="tab" data-toggle="tab">Recycling</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#desalinage" role="tab" data-toggle="tab">Entsalzungsanlage</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-6 tab-section-content tab-section-content-grey match-height">
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade in active row" id="cole">
+                      <h2>Kohlekraftwerk</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="oil">
+                      <h2>Gas-/Ölkraftwerk</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="wind">
+                      <h2>Windenergie</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="water">
+                      <h2>Wasserkraftwerk</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="solar">
+                      <h2>Solarkraftwerk</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="sub">
+                      <h2>Umspannwerk</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="trash">
+                      <h2>Müllverbrennung</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="recycling">
+                      <h2>Recycling</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="desalinage">
+                      <h2>Entsalzungsanlage</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 tab-section-right tab-section-content-grey match-height">
+                  <img src="{% static 'images/home-tabs-02.jpg' %}" class="img-responsive" />
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane fade row" id="logistics">
+                <div class="col-md-3 tab-section-left match-height">
+                  <ul class="tabs" role="tablist" data-toggle="tab">
+                    <li class="activated"><span class="icon-arrow-right"></span><a href="#logistic-center" role="tab" data-toggle="tab">Logistikzentrum</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#cold-storage" role="tab" data-toggle="tab">Kühlhaus</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#administrative-buildings" role="tab" data-toggle="tab">Verwaltungsgebäude</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#commerce" role="tab" data-toggle="tab">Handel</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-6 tab-section-content tab-section-content-grey match-height">
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade in active row" id="logistic-center">
+                      <h2>Logistikzentrum</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="cold-storage">
+                      <h2>Kühlhaus</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="administrative-buildings">
+                      <h2>Verwaltungsgebäude</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="commerce">
+                      <h2>Handel</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 tab-section-right tab-section-content-grey match-height">
+                  <img src="{% static 'images/home-tabs-05.jpg' %}" class="img-responsive" />
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane fade row" id="infrastructure">
+                <div class="col-md-3 tab-section-left match-height">
+                  <ul class="tabs" role="tablist" data-toggle="tab">
+                    <li class="activated"><span class="icon-arrow-right"></span><a href="#datacenter" role="tab" data-toggle="tab">Rechenzentren</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#transportation" role="tab" data-toggle="tab">Verkehrsinfrastruktur</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#hotel" role="tab" data-toggle="tab">Hotel</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#military" role="tab" data-toggle="tab">Militäreinrichtung</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#research" role="tab" data-toggle="tab">Forschungseinrichtung</a></li>
+                    <li><span class="icon-arrow-right"></span><a href="#hospitals" role="tab" data-toggle="tab">Krankenhaus</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-6 tab-section-content tab-section-content-grey match-height">
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade in active row" id="datacenter">
+                      <h2>Rechenzentren</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="transportation">
+                      <h2>Verkehrsinfrastruktur</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="hotel">
+                      <h2>Hotel</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="military">
+                      <h2>Militäreinrichtung</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="research">
+                      <h2>Forschungseinrichtung</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab-sub-pane fade row" id="hospitals">
+                      <h2>Krankenhaus</h2>
+                      <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen</p>
+                      <a href="#" class="btn btn-large force-background">
+                        <span class="icon icon-arrow-right"></span>
+                        Erfahren Sie mehr
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 tab-section-right tab-section-content-grey match-height">
+                  <img src="{% static 'images/home-tabs-09.jpg' %}" class="img-responsive" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper wrapper-white" data-label="Teaser">
+      <div class="content-wrapper">
+        <div class="row boxes-container">
+          <div class="col-md-4">
+            <a href="#" class="box-container box-container-iron-blue image-left">
+              <div class="box-container-image"><img src="{% static 'images/box-01.jpg' %}" /></div>
+              <div class="box-container-content">
+                <h2>Mit Netz und doppeltem Boden</h2>
+                <p>Beim Datacenter Symposium stellt Minimax das bedarfsgesteuerte Intertgas-Brandschutzsystem Oxeo EcoPrevent vor und leistet damit einen wichtigen Beitrag zu den Themen Hochverfügbarkeit, Flexibilität und Green-IT.</p>
+              </div>
+              <div class="clearfix"></div>
+            </a>
+            <a href="#" class="box-container box-container-forest-green image-left">
+              <div class="box-container-image"><img src="{% static 'frontend/images/box-03.jpg' %}" /></div>
+              <div class="box-container-content">
+                <h2>Mehr Sicherheit für Trinkwasser</h2>
+                <p>Bei der Errichtung einer Wasser-Löschanlage müssen klare Vorgaben gemäß neuer Trinkwasserverordnung eingehalten werden.</p>
+                <p>Bei Bestandsanlagen führt dies oft zu einer Überprüfungs- und Erneuerungspflicht.</p>
+              </div>
+              <div class="clearfix"></div>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="#" class="box-container box-container-clay-brown image-left">
+              <div class="box-container-image"><img src="{% static 'frontend/images/box-02.jpg' %}" /></div>
+              <div class="box-container-content">
+                <h2>SCA Mannheim setzt auf OxeoPrevent</h2>
+                <p>Das Minimax Sauerstoffreduzierungssystem Oxeo Prevent schützt zuverlässig das neue Papierrollenlager von SCA Mannheim.</p>
+                <p>Durch die kontrollierte Zufuhr von Stickstoff im Schutzbereich kann dauerhaft kein Brand entstehen.</p>
+              </div>
+              <div class="clearfix"></div>
+            </a>
+            <a href="#" class="box-container box-container-clay-brown image-right">
+              <div class="box-container-image"><img src="{% static 'frontend/images/box-04.jpg' %}" /></div>
+              <div class="box-container-content">
+                <h2>Bvfa Sprinkler Protected Auszeichnung</h2>
+                <p>Der Bvfa hat den Brandschutz des Alnatura Hochregallagers mit dem Sprinkler Protected Preis ausgezeichnet.</p>
+                <p>Minimax hat die Sprinkleranlage für das weltweit größte Hochregallager aus Holz errichtet.</p>
+              </div>
+              <div class="clearfix"></div>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="#" class="box-container box-container-iron-blue image-left">
+              <div class="box-container-image"><img src="{% static 'frontend/images/box-06.jpg' %}" /></div>
+              <div class="box-container-content">
+                <h2>Minimax Mobile</h2>
+                <p>Feuerlöscher von Minimax Mobile Services stehen für Funktionssicherheit, Langlebigkeit, durchdachtes technisches Design und beste Qualität</p>
+              </div>
+              <div class="clearfix"></div>
+            </a>
+            <a href="#" class="box-container box-container-forest-green image-left">
+              <div class="box-container-image"><img src="{% static 'frontend/images/box-07.jpg' %}" /></div>
+              <div class="box-container-content">
+                <h2>Erweiterung der Niederlassung Essen</h2>
+                <p>Minimax bezieht neues Büro in Essen.</p>
+              </div>
+              <div class="clearfix"></div>
+            </a>
+            <a href="{% url 'people-bma_monteur' %}" class="box-container box-container-aubergine-purple image-left">
+              <div class="box-container-image"><img src="{% static 'frontend/images/box-05.jpg' %}" /></div>
+              <div class="box-container-content">
+                <h2>Elektriker gesucht!</h2>
+                <p>Starten Sie in eine sichere Zukunft bei Minimax und lassen Sie sich zum Spezialisten für Brandmelde- und Löschsteuertechnik fortbilden</p>
+              </div>
+              <div class="clearfix"></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock body_content %}
+    <div class="clearfix"></div>
+    {% include 'minimax/frontend/includes/footer.html' %}
+
+    {# in case we want to remove the dots navigation #}
+    {% block navigation_dots %}
+    <div class="navigation-dots">
+      <ul>
+      </ul>
+    </div>
+    {% endblock navigation_dots %}
+    
+
+    <script type="text/javascript" src="{% static 'frontend/js/app.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>
+

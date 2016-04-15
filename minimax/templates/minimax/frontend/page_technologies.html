@@ -1,0 +1,375 @@
+{% extends 'minimax/frontend/page.html' %}
+{% load static from staticfiles %}
+{% load i18n l10n %}
+{% block body_class %}{% endblock %}
+
+
+{% block extra_js %}
+    <script type="text/javascript">
+    (function ($) {
+        $(".related_application").on('click', function () {
+            var mapItem = $(this);
+            $('.app-item').each(function() {
+                if (mapItem.data('related-item-id') == $(this).data('app-item-id')) {
+                    mapItemContent = $(this).html();
+                }
+            });
+            if (mapItemContent.length > 0) {
+                $.featherlight(mapItemContent, {
+                    openSpeed: 200,
+                    contentFilters: ['html'],
+                    afterContent: function () {
+                        var content = $('.featherlight-inner');
+                        content.css({'top': (($(window).height() / 2) - (content.outerHeight() / 2)) + 'px'});
+                    }
+                });
+            }
+            return false;
+        });
+    })(jQuery);
+    </script>
+
+{% endblock %}
+
+{% block body_content %}
+
+
+    {% if technology.header_image %}
+        <style>
+            .solution-title {
+                margin-top: 10px;
+            }
+            .solution-title a {
+                color: #FFFFFF;
+            }
+            .technology-header {
+                background: rgba(0, 0, 0, 0) url("{{ technology.header_image }}") no-repeat scroll center center;
+            }
+        </style>
+    {% endif %}
+    {% block slider %}
+        <div class="slider">
+            <div class="slider-left-boxes">
+                <span class="red-box"></span>
+            </div>
+            <div class="slider-right-boxes"></div>
+            <div class="slides">
+                <div class="slide technology-header">
+                    <div class="content-wrapper">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="slide-caption" style="top: 92.5px;">
+                                    <h2>{{ technology.name|default:"" }}</h2>
+                                    <h3>{{ technology.header_text_1|default:"" }}</h3>
+                                    {{ technology.header_text_2|default:"<p></p>" }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock slider %}
+    {% if technology.primary_description %}
+    <div class="wrapper wrapper-grey primary-description" data-label="{% trans 'Benefits at a Glance' %}">
+        <div class="content-wrapper content-section">
+            <div class="row row-no-margin-left row-no-margin-right">
+                <div class="col-md-8 section-grey match-height">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{ technology.primary_description|safe }}
+                        </div>
+                    </div>
+                </div>
+                {% if technology.primary_description_image %}
+                    <div class="col-md-4 section-image section-image-right match-height">
+                        <div style="background-image: url('{{ technology.primary_description_image }}')"></div>
+                    </div>
+                {% else %}
+                    <div class="col-md-4 section-grey section-image-right match-height">
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if technology.interactive_map_image %}
+    <div class="wrapper wrapper-white" data-label="{% trans 'Overview' %}">
+        <div class="content-wrapper map-wrapper">
+            <div class="hidden">
+                {% for point in technology.map_points.all %}
+                    <div class="map-item" data-for-map="map-overview" data-map-title="{{ point.title }}"
+                         data-map-position-x="{{ point.position_x|unlocalize }}" data-map-position-y="{{ point.position_y|unlocalize }}">
+                        <div class="row">
+                            <div class="col-md-3 section-image centered-image">
+                                <img src="{{ point.image }}" class="img-rounded"/>
+                            </div>
+                            <div class="col-md-9">
+                                <h2>{{ point.title }}</h2>
+                                {{ point.description|safe }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <img class="img-responsive center-block interactive-map" src="{{ technology.interactive_map_image }}" data-map-name="map-overview"/>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if has_function_tabs %}
+    <div class="wrapper wrapper-grey" data-label="{% trans 'Layout and function' %}">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>{% trans 'Layout and function' %}</h2>
+                    <ul class="nav nav-tabs tabs" role="tablist" data-toggle="tab">
+                        {% for tab in technology.function_tabs.all %}
+                        <li role="presentation" {% if forloop.first %}class="activated"{% endif %}>
+                            <a href="#id_tab_{{ forloop.counter }}" aria-controls="id_tab_{{ forloop.counter }}" role="tab" data-toggle="tab">{{ tab.title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        {% for tab in technology.function_tabs.all %}
+                        <div role="tabpanel" class="tab-pane fade in {% if forloop.first %}active{% endif %} row" id="id_tab_{{ forloop.counter }}">
+                            <div class="col-md-12 tab-section-content">
+                                <h2>{{ tab.teaser }}</h2>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        {{ tab.description|safe }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if technology.referenced_applications.all %}
+    <div class="wrapper wrapper-white" data-label="{% trans 'Applications' %}">
+        <div class="content-wrapper content-section">
+            <div class="hidden">
+                {% for application in technology.referenced_applications.all %}
+                    <div class="app-item hidden" data-app-item-id="app_{{ application.id }}" id="app_{{ application.id }}">
+                        <div class="row">
+                            <div class="col-md-3 section-image centered-image">
+                                <img src="{{ application.image }}" class="img-rounded"/>
+                            </div>
+                            <div class="col-md-9">
+                                <h2>{{ application.title }}</h2>
+                                {% for map_point in application.solution_map_points.all %}
+                                    <h3 class="solution-title"><a href="{{ map_point.solution.get_absolute_url }}">{{ map_point.solution }}</a></h3>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>{% trans 'Applications' %}</h2>
+                    {{ technology.applications_teaser|safe }}
+                    <div class="row applications">
+                        {% for application in technology.referenced_applications.all %}
+                        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6 application-item">
+                            <a class="related_application" href="#" data-related-item-id="app_{{ application.id }}">
+                                <div class="image-mask image-mask-round">
+                                    <img src="{{ application.image }}"/>
+                                </div>
+                                {{ application.title }}
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if technology.referenced_certification_types.all %}
+    <div class="wrapper wrapper-grey" data-label="{% trans 'Certifications' %}">
+        <div class="content-wrapper content-section">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>{% trans 'Certifications' %}</h2>
+                    {{ technology.certifications_teaser|safe }}
+                    <div class="row authorizations">
+                        {% for certification in technology.referenced_certification_types.all %}
+                            <div class="col-md-6 col-sm-6 col-xs-12 authorization-item">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <img src="{{ certification.image }}" class="img-responsive"/>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="title-and-paragraph">
+                                            <h5>{{ certification.title }}</h5>
+                                            {{ certification.description|safe }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if forloop.last and not forloop.counter|divisibleby:2 %}
+                            <div class="col-md-6 col-sm-6 col-xs-12 authorization-item hidden">
+                                <img src="{% static 'frontend/images/authorization.png' %}"/>
+                                <div class="title-and-paragraph">
+                                    <h5>Approval name</h5>
+                                    <p>Short description cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                                </div>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if technology.referenced_technologies.all %}
+    <div class="wrapper wrapper-white" data-label="{% trans 'Other Technologies' %}">
+        <div class="content-wrapper content-section">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>{% trans 'Other technologies you might be interested in' %}</h2>
+                    {{ technology.technologies_teaser|safe }}
+                    <div class="row related-technologies">
+                    {{ technology.referenced_technologies.status_objects }}
+                        {% for other_tech in technology.referenced_technologies.all %}
+                            {% if other_tech.status == 'PUBLISHED' %}
+                                <div class="col-md-4 col-sm-4 col-xs-6 technology">
+                                    <div class="technology-wrapper">
+                                        <div class="image" style="background-image: url('{{ other_tech.primary_description_image }}')"></div>
+                                        <h5 style="min-height: 50px;">{{ other_tech.name }}</h5>
+                                        <p>{{ other_tech.type }}</p>
+                                        <a href="/{{ region.code }}/{{ language_code }}{{ other_tech.get_absolute_url }}" class="btn">Discover</a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if technology.all_related_documents.count > 0 %}
+    <div class="wrapper wrapper-grey" data-label="{% trans 'Media & Downloads' %}">
+        <div class="content-wrapper content-section">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>{% trans 'Media & Downloads' %}</h1>
+                    <div class="row downloads">
+                        {% for document in technology.all_related_documents.all %}
+                        <div class="col-md-6">
+                            <div class="download-item">
+                                {% if document.thumbnail %}
+                                    <img src="{{ document.thumbnail }}" class="img-responsive"/>
+                                {% else %}
+                                    <img src="{% static 'frontend/images/downloads_01.jpg' %}" class="img-responsive"/>
+                                {% endif %}
+                                <div class="title-and-link">
+                                    <h4>{{ document.title }}</h4>
+                                    <p class="download-link">
+                                        <a href="{{ document.file }}" target="_blank"><span class="icon icon-file-pdf"></span>{% trans 'Download' %}</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        {% if forloop.last and not forloop.counter|divisibleby:2 %}
+                        <div class="col-md-6">
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if has_customers or has_projects or has_case_studies %}
+    <div class="wrapper wrapper-white" data-label="{% trans 'References' %}">
+        <div class="content-wrapper content-section">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>{% trans 'References' %}</h1>
+                    <ul class="nav nav-tabs tabs" role="tablist" data-toggle="tab">
+                        {% if has_customers %}
+                        <li role="presentation" class="activated">
+                            <a href="#customers" aria-controls="customers" role="tab" data-toggle="tab">{% trans 'Customers' %}</a>
+                        </li>
+                        {% endif %}
+                        {% if has_projects %}
+                        <li role="presentation" {% if not has_customers > 0 %}class="activated"{% endif %}>
+                            <a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">{% trans 'Projects' %}</a>
+                        </li>
+                        {% endif %}
+                        {# TODO: we need to add the case studies model #}
+                        {% if has_case_studies %}
+                        <li role="presentation" {% if not has_customers and not has_projects %}class="activated"{% endif %}>
+                            <a href="#case_studies" aria-controls="case_studies" role="tab" data-toggle="tab">{% trans 'Case Studies' %}</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    <div class="tab-content">
+                        {% if has_customers %}
+                            <div id="customers" class="tab-pane fade row active in" role="tabpanel">
+                                <div class="col-md-12 tab-section-content tab-section-content-grey">
+                                    <ul class="brand-logos">
+                                        {% for customer in technology.customers.all %}
+                                            <li><img class="img-responsive" src="{{ customer.logo }}"></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if has_projects %}
+                        <div role="tabpanel" class="tab-pane fade in {% if not has_customers %}active{% endif %} row" id="projects">
+                            <div class="col-md-12 tab-section-content tab-section-content-grey">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>{% trans 'Technology' %}</th>
+                                        <th>{% trans 'Agent' %}</th>
+                                        <th>{% trans 'Applications' %}</th>
+                                        <th>{% trans 'Solutions' %}</th>
+                                        <th>{% trans 'Characteristics' %}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for project in technology.projects.all %}
+                                    <tr>
+                                        <td>{{ project.get_technologies }}</td>
+                                        <td>{{ project.agent }}</td>
+                                        <td>{{ project.get_applications }}</td>
+                                        <td>{{ project.get_solutions }}</td>
+                                        <td>{{ project.characteristics }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if has_case_studies %}
+                            <div id="case_studies" class="tab-pane fade row active in" role="tabpanel">
+                                <div class="col-md-12 tab-section-content tab-section-content-grey">
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

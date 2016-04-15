@@ -1,0 +1,98 @@
+{% extends 'minimax/frontend/base.html' %}
+{% load static from staticfiles %}
+
+{% block body_class %}page-people-akademie{% endblock %}
+
+{% block body_content %}
+    {% block slider %}
+        <div class="slider">
+            <div class="slider-left-boxes">
+                <span class="red-box"></span>
+            </div>
+            <div class="slider-right-boxes"></div>
+            <div class="slides">
+                <div class="slide">
+                    <div class="content-wrapper">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="slide-caption" style="top: 92.5px;">
+                                    <h2>{{ page.header_title|default:"" }}</h2>
+                                    {{ page.header_caption|default:"<p></p>"|safe }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock slider %}
+    {% for section in page.content.all %}
+        <div class="wrapper {% cycle 'wrapper-grey' 'wrapper-white' %}" data-label="{{ section.title }}">
+            <div class="content-wrapper content-section">
+                <div class="row row-no-margin-left row-no-margin-right">
+                    {% if section.type == 'TEXT' %}
+                        <div class="col-md-12 row-match-height">
+                            <h2>{{ section.title }}</h2>
+                            {{ section.text|safe }}
+                        </div>
+                    {% elif section.type == 'TEXT_W_IMAGE' %}
+                        {% if section.image_position == 'RIGHT' %}
+                            {% if section.image_width == 25 %}
+                                <div class="col-md-9 row-match-height">
+                                    <h2>{{ section.title }}</h2>
+                                    {{ section.text|safe }}
+                                </div>
+                                <div class="col-md-3 row-match-height">
+                                    <img src="{{ section.image }}" class="img-responsive"/>
+                                </div>
+                            {% elif section.image_width == 33 %}
+                                <div class="col-md-8 row-match-height">
+                                    <h2>{{ section.title }}</h2>
+                                    {{ section.text|safe }}
+                                </div>
+                                <div class="col-md-4 row-match-height">
+                                    <img src="{{ section.image }}" class="img-responsive"/>
+                                </div>
+                            {% elif section.image_width == 50 %}
+                                <div class="col-md-6 row-match-height">
+                                    <h2>{{ section.title }}</h2>
+                                    {{ section.text|safe }}
+                                </div>
+                                <div class="col-md-6 row-match-height">
+                                    <img src="{{ section.image }}" class="img-responsive"/>
+                                </div>
+                            {% endif %}
+                        {% else %}
+                            {# image is on the left #}
+                            {% if section.image_width == 25 %}
+                                <div class="col-md-3 row-match-height">
+                                    <img src="{{ section.image }}" class="img-responsive"/>
+                                </div>
+                                <div class="col-md-9 row-match-height">
+                                    <h2>{{ section.title }}</h2>
+                                    {{ section.text|safe }}
+                                </div>
+                            {% elif section.image_width == 33 %}
+                                <div class="col-md-4 row-match-height">
+                                    <img src="{{ section.image }}" class="img-responsive"/>
+                                </div>
+                                <div class="col-md-8 row-match-height">
+                                    <h2>{{ section.title }}</h2>
+                                    {{ section.text|safe }}
+                                </div>
+                            {% elif section.image_width == 50 %}
+                                <div class="col-md-6 row-match-height">
+                                    <img src="{{ section.image }}" class="img-responsive"/>
+                                </div>
+                                <div class="col-md-6 row-match-height">
+                                    <h2>{{ section.title }}</h2>
+                                    {{ section.text|safe }}
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock body_content %}

@@ -1,0 +1,31 @@
+.mce-fullscreen {
+    z-index: 10000 !important;
+}
+
+body.tinyMCE input[name="src"] + div a:hover,
+body.tinyMCE input[name="href"] + div a:hover,
+.mce-tinymce button:hover,
+.mce-tinymce input[type="button"]:hover {
+    border: 0;
+}
+
+.mce-tinymce .mce-btn button {
+    font-size: 12px;
+}
+
+.mce-tinymce {
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.mce-tinymce .mce-toolbar-grp {
+    padding: 0;
+}
+
+.mce-tinymce .mce-statusbar .mce-path {
+    padding: 6px;
+}
+
+.mce-tinymce .mce-container, .mce-tinymce .mce-container *, .mce-tinymce .mce-widget, .mce-tinymce .mce-widget *, .mce-tinymce .mce-reset {
+    font-size: 13px;
+}

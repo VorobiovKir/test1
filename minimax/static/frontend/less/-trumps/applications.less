@@ -1,0 +1,43 @@
+.applications {
+  .application-item {
+    margin-top: @base-size;
+    padding: 0 @base-size;
+    text-align: center;
+    color: @content-grey;
+    height: 200px;
+
+    a {
+      word-break: normal;
+      font-size: 13px;
+      color: @secondary-color;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .image-mask {
+      margin: 0 auto (@base-size * 0.6);
+      display: block;
+      width: 120px;
+      height: 120px;
+
+      &:hover {
+
+        img {
+          top: -20px;
+          left: -20px;
+          height: 160px;
+        }
+      }
+
+      img {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        height: 120px;
+        .multi-transition(~"height, top, left", 300ms, "ease-in-out")
+      }
+    }
+  }
+}

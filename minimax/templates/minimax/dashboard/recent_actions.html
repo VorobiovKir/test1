@@ -1,0 +1,46 @@
+{% extends "grappelli/dashboard/module.html" %}
+
+{% load i18n %}
+{% load avatar_tags %}
+
+{% block module_content %}
+<div class="dashboard-item recent-actions">
+    <div class="grp-module">
+        {% if module.children %}
+            <ul class="grp-listing-small">
+                {% for entry in module.children %}
+                    <li class="grp-row ">
+                        <div class="avatar-column">
+                            <div class="avatar-image-box">
+                                {% avatar entry.user 45 %}
+                            </div>
+                        </div>
+                        <div class="message-columm">
+                            <span class="user">{{ entry.user.first_name }} {{ entry.user.last_name }}</span>
+                            <span class="object">
+                                {% if entry.is_deletion %}
+                                    {{ entry.object_repr }}
+                                {% else %}
+                                    <a href="{{ entry.get_admin_url }}">{{ entry.object_repr }}</a>
+                                {% endif %}
+                            </span>
+                            <span class="type">{% filter capfirst %}{% trans entry.content_type.name %}{% endfilter %}</span>                            
+                            <span class="info">
+                            {% if entry.is_deletion %}
+                                <strong>{{ entry.action_time}}:</strong> {{ entry.user.first_name }} has deleted the {% trans entry.content_type.name %} "{{ entry.object_repr }}"
+                            {% elif entry.is_addition %}                        
+                                <strong>{{ entry.action_time}}:</strong> {{ entry.user.first_name }} has created a new {% trans entry.content_type.name %} "{{ entry.object_repr }}"
+                            {% else %}
+                                <strong>{{ entry.action_time}}:</strong> {{ entry.user.first_name }} has changed the {% trans entry.content_type.name %} "{{ entry.object_repr }}"
+                            {% endif %}
+                            </span>
+                        </div>                            
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <div class="grp-row"><p>{% trans 'None Available' %}</p></div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

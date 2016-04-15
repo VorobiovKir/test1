@@ -1,0 +1,67 @@
+* {
+  font-family: @primary-font;
+  color: @iron-grey;
+  &[ng-click] {
+    cursor: pointer;
+  }
+  &:focus,
+  &:active {
+    outline: 0px !important;
+  }
+}
+
+body, html {
+  background: @app-bg;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  &:focus {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}
+
+.hidden-small {
+  display: block;
+}
+
+@media (max-width: @screen-small) {
+  .hidden-small {
+    display: none;
+  }
+}
+
+.row-divider {
+  height: @base-size * 4;
+}
+
+.row-no-margin-left {
+  margin-left: 0px;
+}
+
+.row-no-margin-right {
+  margin-right: 0px;
+}
+
+.row-no-margin {
+  margin: 0px !important;
+
+  > div {
+    padding: 0px;
+  }
+}
+
+.img-responsive {
+  margin: 0 auto;
+}

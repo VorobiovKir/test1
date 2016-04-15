@@ -1,0 +1,283 @@
+@slider-title-color: @iron-grey;
+@slider-subtitle-color: #808080;
+@slider-paragraph-color: @slider-subtitle-color;
+
+.slider {
+  height: @base-size * 20;
+  background: @iron-blue;
+
+  .slider-left-boxes {
+    position: relative;
+    z-index: 9997;
+    float: left;
+    background: rgba(0, 0, 0, 0.3);
+    height: 100%;
+    width: @base-size * 2;
+
+    .red-box {
+      display: block;
+      background: @secondary-color;
+      height: @base-size * 2;
+      width: @base-size * 2;
+    }
+  }
+
+  .slider-right-boxes {
+    position: relative;
+    z-index: 9997;
+    float: right;
+    height: 100%;
+    width: @base-size * 8;
+    background: url('../images/slider-boxes.png');
+  }
+
+  .slides {
+    .slide {
+      background-size: cover !important;
+
+      #slider {
+        height: @base-size * 20;
+
+        .carousel-indicators {
+          z-index: 9999;
+
+          li {
+            .box-shadow(0px 0px 33px 0px rgba(0,0,0,0.7));
+            border-color: @secondary-color;
+
+            &.active {
+              background-color: @secondary-color;
+            }
+          }
+        }
+
+        .carousel-inner {
+          height: @base-size * 20;
+          position: absolute;
+          top: 0;
+        }
+
+        .content-wrapper {
+          position: relative;
+          top: @base-size * 4;
+        }
+
+        .item {
+          height: @base-size * 20;
+          background-size: cover !important;
+        }
+
+        .item.slide-01 {
+          background: url('../images/slider-background.jpg') no-repeat center center;
+        }
+
+        .item.slide-02 {
+          background: url('../images/home_slider_02.jpg') no-repeat center center;
+          background-size: cover !important;
+        }
+
+        .item.slide-03 {
+          background: url('../images/home_slider_03.jpg') no-repeat center center;
+          background-size: cover !important;
+        }
+
+        .item.slide-04 {
+          background: url('../images/home_slider_04.jpg') no-repeat center center;
+          background-size: cover !important;
+        }
+      }
+
+      height: @base-size * 20;
+      width: 100%;
+
+      .row {
+        max-width: 700px;
+      }
+
+      .slide-caption {
+        position: relative;
+        max-width: 700px;
+        padding: @base-size;
+        background: rgba(255, 255, 255, 0.9);
+
+        h2 {
+          color: @slider-title-color;
+          margin-bottom: @base-size * 0.5;
+        }
+
+        h3 {
+          color: @slider-subtitle-color;
+          margin-bottom: @base-size * 0.5;
+        }
+
+        h4 {
+          margin-top: @base-size * 0.5;
+        }
+
+        p {
+          color: @slider-paragraph-color;
+        }
+
+        button {
+          border-color: white;
+
+          a, span {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.page.page-technologies .slider {
+  .slides {
+    .slide {
+      background: url('../images/slider-technologies2.jpg') no-repeat center center;
+    }
+  }
+}
+
+.page.page-solutions .slider {
+  .slides {
+    .slide {
+      background: url('../images/slider-solutions.jpg') no-repeat center center;
+    }
+  }
+}
+
+.page.page-people-bma_monteur .slider {
+  .slides {
+    .slide {
+      background: url('../images/people-bma_monteur_03.jpg') no-repeat center center;
+    }
+  }
+}
+
+.page.page-people-akademie .slider {
+  .slides {
+    .slide {
+      background: url('../images/people-akademie_slider.jpg') no-repeat center center;
+    }
+  }
+}
+
+.page.page-service-reliability .slider {
+  .slides {
+    .slide {
+      background: url('../images/slider-service.jpg') no-repeat center center;
+    }
+  }
+}
+
+.page.page-people .slider {
+  .slides {
+    .slide {
+      background: url('../images/people-work-at-minimax-slider.jpg') no-repeat center center;
+    }
+  }
+}
+
+.page.page-people-qualification_and_education .slider {
+  .slides {
+    .slide {
+      background: url('../images/people-qualification-and-education-slider.jpg') no-repeat center center;
+    }
+  }
+}
+
+@media (max-width: (@screen-huge + 160)) {
+  .slider {
+    height: @base-size * 16;
+
+    .slider-left-boxes {
+      display: none;
+    }
+
+    .slides {
+      .slide {
+        height: @base-size * 16;
+
+        #slider {
+          height: @base-size * 16;
+
+          .carousel-indicators {
+            z-index: 9999;
+          }
+
+          .carousel-inner {
+            height: @base-size * 16;
+          }
+
+          .content-wrapper {
+            top: @base-size * 2;
+          }
+
+          .item {
+            height: @base-size * 16;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: (@screen-huge)) {
+  .slider {
+    height: @base-size * 12;
+
+    .slider-right-boxes {
+      display: none;
+    }
+
+    .slides {
+      .slide {
+        height: @base-size * 12;
+
+        #slider {
+          height: @base-size * 12;
+
+          .carousel-inner {
+            height: @base-size * 12;
+          }
+
+          .content-wrapper {
+            height: @base-size * 12;
+            top: 0px;
+
+            .slide-caption {
+              height: @base-size * 12;
+            }
+          }
+
+          .item {
+            height: @base-size * 12;
+          }
+        }
+
+        .row {
+          max-width: none;
+        }
+
+        .content-wrapper {
+          margin: 0;
+          padding: 0;
+          max-width: none;
+        }
+
+        .slide-caption {
+          padding: @base-size * 2;
+          position: inherit;
+          top: 0px;
+          height: auto;
+          width: 100%;
+          max-width: none;
+        }
+      }
+    }
+  }
+
+  div[class^="slide-"] {
+    background: #f5f5f5 !important;
+  }
+}

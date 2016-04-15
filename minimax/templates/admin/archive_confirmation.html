@@ -1,0 +1,45 @@
+{% extends "admin/base_site.html" %}
+
+<!-- LOADING -->
+{% load i18n admin_urls %}
+
+<!-- COLTYPE/BODYCLASS-- >
+{% block bodyclass %}grp-delete-confirmation{% endblock %}
+{% block content-class %}{% endblock %}
+
+<!-- BREADCRUMBS -->
+{% block breadcrumbs %}
+<ul class="grp-horizontal-list">
+  <li><a href="../../../art">{% trans "Home" %}</a></li>
+  <li><a href="../../../art/templates">{% trans app_label|capfirst|escape %}</a></li>
+  <li><a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst|escape }}</a></li>
+  <li><a href="{% url opts|admin_urlname:'changelist' %}{{ object.pk }}">{{ object|truncatewords:"18" }}</a></lI>
+  {% if archive_mode %}
+  <li>{% trans 'Archive' %}</li>
+  {% else %}
+  <li>{% trans 'Reactivation' %}</li>
+  {% endif %}
+</ul>
+{% endblock %}
+
+!-- CONTENT -->
+{% block content %}
+<div class="g-d-c">
+  <div class="grp-group">
+    {% if archive_mode %}
+    <h2>{% blocktrans with object as escaped_object %}Are you sure you want to archive the {{ object_name }} "{{ escaped_object }}"?{% endblocktrans %} </h2>
+    {% else %}
+    <h2>{% blocktrans with object as escaped_object %}Are you sure you want to reactivate the {{ object_name }} "{{ escaped_object }}"?{% endblocktrans %} </h2>
+    {% endif %}
+  </div>
+  <form action="" method="post">{% csrf_token %}
+    <div class="grp-module grp-submit-row grp-fixed-footer">
+      <ul>
+        <li class="grp-float-left"><a href="../../../art/templates/admin" class="grp-button grp-cancel-link">{% trans "Cancel" %}</a></li>
+        <li><input type="submit" value="{% trans "Yes, I'm sure" %}" class="grp-button grp-default" /></li>
+      </ul>
+      <input type="hidden" name="post" value="yes" />
+    </div>
+  </form>
+</div>
+{% endblock %}

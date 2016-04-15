@@ -1,0 +1,60 @@
+ul.page-list {
+  margin: @base-size 0;
+
+  li {
+    display: block;
+    margin: (@base-size * 0.5) 0;
+
+    span.icon {
+      font-size: 24px;
+      float: left;
+      margin: 0 (@base-size * 0.5);
+    }
+
+    .titles {
+      float: left;
+      margin: 0 @base-size 0 0;
+
+      h5 {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      h6 {
+        font-size: 14px;
+        font-style: italic;
+        color: @dark-grey;
+      }
+    }
+
+    .languages {
+      padding: 5px 0 0 0;
+
+      .language {
+        font-size: 13px;
+        text-align: center;
+        background: @iron-grey;
+        color: @light-grey;
+        float: left;
+        margin: 0 (@base-size * 0.5) 0 0;
+        line-height: @base-size * 1.5;
+        width: @base-size * 1.4;
+        height: @base-size * 1.4;
+        .border-radius(@base-size * 0.7);
+
+
+      }
+    }
+
+  }
+}
+
+@media (max-width: (@screen-tiny)) {
+  ul.page-list {
+    li {
+      span.icon {
+        margin: 0 (@base-size * 0.2);
+      }
+    }
+  }
+}
